@@ -1,0 +1,22 @@
+.our-services{
+    padding-top: 50px;
+    
+}
+
+.our-services-icon{
+    width: 20%;
+}
+
+.our-services-wrapper{
+        border: none;
+    border-radius: none;
+    border-width: thin;
+    block-size: 320px;
+    box-shadow: 2px 2px 10px #EE724B
+}
+
+.card-title{
+    font-size: 20px;
+    font-weight: 700;
+}
+

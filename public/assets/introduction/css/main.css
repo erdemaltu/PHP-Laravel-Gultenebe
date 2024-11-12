@@ -1,0 +1,18 @@
+/*! global css */
+
+@import url(base.css);
+
+/*! layout */
+
+@import url(layout/header.css);
+@import url(layout/footer.css);
+@import url(layout/loading.css);
+
+
+/*! pages */
+
+@import url(pages/mobil-menu.css);
+@import url(pages/silider.css);
+@import url(pages/aboutus.css);
+@import url(pages/our-services.css);
+@import url(pages/frequently-asked-questions.css);

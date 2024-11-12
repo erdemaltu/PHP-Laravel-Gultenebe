@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Mulish', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+.my-container {
+    max-width: 1500px;
+    width: 100%;
+    margin: auto;
+}
+
+.partner-title {
+  font-size: 5vh;
+  font-weight: 500;
+  padding: 30px 0 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.sozlesme-icerik{
+  padding-top: 180px;
+  padding-bottom: 90px;
+}
+
+/*! responsive */
+
+@media (max-width: 1550px) {
+  .my-container {
+    max-width: 1200px;
+  }
+}
+
+@media (max-width: 1200px) {
+    .my-container {
+      max-width: 992px;
+    }
+  }
+  
+  @media (max-width: 1000px) {
+    .my-container {
+      max-width: 768px;
+    }
+  }
+
+  @media (max-width: 850px) {
+    .my-container {
+      max-width: 650px;
+    }
+  }
+  
+  @media (max-width: 700px) {
+    .my-container {
+      max-width: 576px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .my-container {
+      max-width: 400px;
+    }
+  }
+  
+  @media (max-width: 420px) {
+    .my-container {
+      max-width: 370px;
+    }
+  }
+
+  @media (max-width: 376px) {
+    .my-container {
+      max-width: 350px;
+    }
+  }

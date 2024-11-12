@@ -1,0 +1,167 @@
+.aboutus {
+    /* padding-top: 50px; */
+    margin-top: 100px;
+}
+
+.aboutus-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+}
+
+.aboutus-img-wrapper {
+    width: 100%;
+}
+
+.aboutus-img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutus-img-item {
+    width: 45%;
+}
+
+.aboutus-img {
+    width: 100%;
+}
+
+.aboutus-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.aboutus-title {
+    font-size: 4vh;
+    font-weight: 700;
+}
+
+.aboutus-text-info {
+    text-indent: 30px;
+    text-align: justify;
+    font-size: 2vh;
+    font-weight: 500;
+    padding: 5px 0;
+}
+
+.aboutus-application-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+@media (max-width:1550px) {
+
+    .aboutus-text-info {
+        font-size: 2vh;
+    }
+
+}
+
+@media (max-width:1200px) {
+
+    .aboutus-img-item {
+        width: 70%;
+    }
+
+}
+
+@media (max-width:1000px) {
+
+    .aboutus-img-item {
+        width: 80%;
+    }
+
+    .aboutus-application-size {
+        width: 70%;
+    }
+
+    .aboutus-application a {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+
+}
+
+@media (max-width:850px) {
+
+    .aboutus-img-item {
+        width: 50%;
+    }
+
+    .aboutus-wrapper {
+        flex-direction: column;
+    }
+
+    .aboutus-wrapper {
+
+        gap: 30px;
+
+    }
+
+
+}
+
+@media (max-width:768px) {
+
+    .aboutus-img-item {
+        width: 40%;
+    }
+
+    .aboutus-application-size {
+        width: 80%;
+    }
+
+
+
+
+}
+
+@media (max-width:600px) {
+
+    .aboutus-img-item {
+        width: 60%;
+    }
+
+    .aboutus-application-size {
+        width: 80%;
+    }
+
+}
+
+@media (max-width:376px) {
+
+    .aboutus-img-item {
+        width: 60%;
+    }
+
+    .aboutus-application-size {
+        width: 80%;
+    }
+
+}
+
+@media (max-width:330px) {
+
+    .aboutus-text-info {
+
+        font-size: 2.4vh;
+
+    }
+
+    .aboutus-img-item {
+        width: 40%;
+    }
+
+    .aboutus-application-size {
+        width: 80%;
+    }
+
+}

@@ -1,0 +1,68 @@
+.footer{
+    background-color: #121212;
+    padding: 30px;
+}
+
+.contac-mail,.contac-phone{
+    text-decoration: none;
+    color: white;
+}
+
+.contac-wrapper-footer h5{
+    color: white;
+}
+
+.links-item li a{
+    text-decoration: none;
+    color: white;
+}
+
+.links-wrapper h5{
+    color: white;
+}
+
+.contracts-item li a{
+    text-decoration: none;
+    color: white;
+}
+
+.contracts-wrapper h5{
+    color: white;
+}
+
+.footer-bottom-title{
+    color: white;
+}
+
+.contac-wrapper-footer ul{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.links-wrapper ul{
+    padding: 0;
+    margin: 0;
+}
+
+.contracts-wrapper ul{
+    padding: 0;
+    margin: 0;
+}
+
+.footer-bottom-title{
+    margin: 0;
+}
+
+.social-media{
+    padding: 10px;
+    background-color: white;
+}
+
+.contac-item-footer{
+    display: flex;
+    flex-direction: column;
+}

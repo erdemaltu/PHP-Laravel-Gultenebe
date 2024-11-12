@@ -1,0 +1,137 @@
+.frequently-asked-questions{
+  padding-top: 150px;
+  padding-bottom: 100px;
+}
+
+.frequently-asked-questions-title {
+    font-size: 5vh;
+    font-weight: 600;
+    padding: 30px 0 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.faq-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  
+  .faq {
+    background-color: transparent;
+    border: 1px solid #EE724B;
+    border-radius: 10px;
+    margin: 20px 0;
+    padding: 15px;
+    position: relative;
+    overflow: hidden;
+    transition: 0.5s ease;
+  }
+  
+  .faq.acttive {
+    background-color: #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid #EE724B;
+    background-image: url('../../img/logo4.png');
+    background-position-x: left;
+    background-position-y: bottom;
+    background-repeat:no-repeat;
+    background-size: 11%;
+  }
+  
+  .faq-title {
+    color: black;
+    margin: 0 35px 0 0;
+    font-size: 2vh;
+    font-weight: 700;
+    transition: 0.3s ease;
+  }
+  
+  .faq.acttive .faq-title {
+    color: black;
+  }
+  
+  .faq-text {
+    font-size: 20px;
+    font-weight: 500;
+    color: black;
+    text-align: justify;
+    display: none;
+    margin: 30px 0 0;
+    
+  }
+  
+  .faq.acttive .faq-text {
+    display: block;
+  }
+  
+  .faq-toggle {
+    background-color: transparent;
+    color: black;
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    padding: 0;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    width: 30px;
+    transition: 0.3s ease;
+  }
+  
+  .faq-toggle i:hover {
+  
+    color: #EE724B;
+  
+  }
+  
+  .faq.acttive .faq-toggle {
+    color: black;
+  }
+  
+  .faq-toggle .fa-xmark {
+    display: none;
+  }
+  
+  .faq.acttive .faq-toggle .fa-xmark {
+    display: block;
+  }
+  
+  .faq.acttive .faq-toggle .fa-chevron-down {
+    display: none;
+  }
+
+  @media (max-width:1000px) {
+
+    .faq.acttive {
+
+      background-position: center;
+      background-size: 30%;
+    }
+
+
+}
+
+@media (max-width:768px) {
+
+  .faq.acttive {
+
+    background-size: 40%;
+  }
+
+
+}
+
+@media (max-width:600px) {
+
+  .faq.acttive {
+
+    background-size: 90%;
+  }
+
+
+}
