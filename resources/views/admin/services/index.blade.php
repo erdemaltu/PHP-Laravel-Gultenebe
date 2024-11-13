@@ -61,28 +61,28 @@
                                                     <tr data-id="{{$rs->id}}">
                                                         <td data-field="image">
                                                             @if($rs->image)
-                                                                <img src="{{ asset('uploads/teknoloji/services/'.$rs->image)}}" height="70" alt="">
+                                                                <img src="{{ asset('uploads/services/'.$rs->image)}}" height="70" alt="">
                                                             @endif
                                                         </td>
-                                                        <td>{{$rs->title}}</td>
+                                                        <td>{{$rs->name_tr}}</td>
                                                         <td data-field="id">
-                                                            <a href="{{route('admin_technology_category_children',['id'=>$rs->id])}}" class="btn btn-secondary waves-effect waves-light" title="Alt Hizmet">
+                                                            <a href="{{route('services.children',['id'=>$rs->id])}}" class="btn btn-secondary waves-effect waves-light" title="Alt Hizmet">
                                                             <i class="fas fa-angle-double-down"></i> Alt Hizmetleri
                                                         </a>
                                                         </td>
                                                         <td>
                                                             <div class="square-switch">
                                                                 <input
-                                                            class="switch" category-id="{{$rs->id}}" type="checkbox" id="square-switch{{$rs->id}}" switch="bool" @if($rs->status == 'Aktif') checked @endif data-toggle="toggle" />
+                                                            class="switch" category-id="{{$rs->id}}" type="checkbox" id="square-switch{{$rs->id}}" switch="bool" @if($rs->status == True) checked @endif data-toggle="toggle" />
                                                                     <label for="square-switch{{$rs->id}}" data-on-label="Aktif"
                                                                         data-off-label="Pasif"></label>
                                                             </div>
                                                         </td>
                                                         <td style="width: 100px">
-                                                            <a href="{{route('admin_technology_category_edit',['id'=>$rs->id])}}" class="btn btn-info waves-effect waves-light" title="Düzenle">
+                                                            <a href="{{route('services.edit',['id'=>$rs->id])}}" class="btn btn-info waves-effect waves-light" title="Düzenle">
                                                                 <i class="fas fa-pencil-alt"></i>
                                                             </a>
-                                                            <a href="{{route('admin_technology_category_delete',['id'=>$rs->id])}}" onclick="return confirm('Silinen veri bir daha geri gelmez! Emin misiniz?')" class="btn btn-danger waves-effect waves-light" title="Sil">
+                                                            <a href="{{route('services.delete',['id'=>$rs->id])}}" onclick="return confirm('Silinen veri bir daha geri gelmez! Emin misiniz?')" class="btn btn-danger waves-effect waves-light" title="Sil">
                                                                 <i class="fas fa-trash-alt"></i>
                                                             </a>
                                                         </td>

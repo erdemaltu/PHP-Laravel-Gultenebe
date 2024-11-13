@@ -43,15 +43,27 @@
                                         <form action="{{route('services.store')}}" method="post" enctype="multipart/form-data">
                                             @csrf
                                             <div class="row mb-4">
-                                                <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Başlık</label>
+                                                <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Başlık (Türkçe)</label>
                                                 <div class="col-sm-9">
-                                                  <input type="text" class="form-control" id="horizontal-firstname-input" name="name" placeholder="...." value="{{old('name')}}" required>
+                                                  <input type="text" class="form-control" id="horizontal-firstname-input" name="name_tr" placeholder="...." value="{{old('name_tr')}}" required>
                                                 </div>
                                             </div>
                                             <div class="row mb-4">
-                                                <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Tanım</label>
+                                                <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Başlık (İngilizce)</label>
                                                 <div class="col-sm-9">
-                                                  <input type="text" class="form-control" id="horizontal-firstname-input" name="definition" placeholder="...." value="{{old('definition')}}" required>
+                                                  <input type="text" class="form-control" id="horizontal-firstname-input" name="name_en" placeholder="...." value="{{old('name_en')}}" required>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-4">
+                                                <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Tanım (Türkçe)</label>
+                                                <div class="col-sm-9">
+                                                  <input type="text" class="form-control" id="horizontal-firstname-input" name="definition_tr" placeholder="...." value="{{old('definition_tr')}}" required>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-4">
+                                                <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Tanım (İngilizce)</label>
+                                                <div class="col-sm-9">
+                                                  <input type="text" class="form-control" id="horizontal-firstname-input" name="definition_en" placeholder="...." value="{{old('definition_en')}}" required>
                                                 </div>
                                             </div>
                                             <div class="row mb-4">
@@ -79,11 +91,34 @@
                                                 </div>
                                             </div>
                                             <div class="row mb-4">
-                                                <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">İçerik</label>
+                                                <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">İçerik (Türkçe)</label>
                                                 <div class="col-sm-9">
-                                                <textarea id="summernote" name="description"></textarea>
+                                                <textarea id="summernote_tr" name="description_tr">{{old('description_tr')}}</textarea>
                                                 <script>
-                                                $('#summernote').summernote({
+                                                $('#summernote_tr').summernote({
+                                                    placeholder: '...',
+                                                    tabsize: 2,
+                                                    height: 300,
+                                                    toolbar: [
+                                                    ['style', ['style']],
+                                                    ['font', ['bold', 'underline', 'clear']],
+                                                    ['color', ['color']],
+                                                    ['para', ['ul', 'ol', 'paragraph']],
+                                                    ['table', ['table']],
+                                                    ['insert', ['link', 'picture', 'video']],
+                                                    ['view', ['fullscreen', 'codeview', 'help']]
+                                                    ]
+                                                });
+                                                </script>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-4">
+                                                <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">İçerik (İngilizce)</label>
+                                                <div class="col-sm-9">
+                                                <textarea id="summernote_en" name="description_en">{{old('description_en')}}</textarea>
+                                                <script>
+                                                $('#summernote_en').summernote({
                                                     placeholder: '...',
                                                     tabsize: 2,
                                                     height: 300,

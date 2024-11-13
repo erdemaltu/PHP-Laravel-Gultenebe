@@ -14,12 +14,13 @@ return new class extends Migration
         Schema::create('about_us', function (Blueprint $table) {
             $table->id();
             $table->string('slug')->unique();               
-            $table->longText('content');                        
+            $table->longText('content_tr');                  
+            $table->longText('content_en')->nullable();      
             $table->string('seo_title')->nullable();        
             $table->text('seo_description')->nullable();    
             $table->string('seo_keywords')->nullable();     
             $table->timestamps();
-        });
+        });        
     }
 
     /**

@@ -13,15 +13,17 @@ return new class extends Migration
     {
         Schema::create('packages', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name_tr');                       
+            $table->string('name_en')->nullable();           
             $table->string('slug')->unique();               
-            $table->text('description')->nullable();        
+            $table->text('description_tr')->nullable();      
+            $table->text('description_en')->nullable();      
             $table->decimal('price', 8, 2);                 
             $table->string('seo_title')->nullable();        
             $table->text('seo_description')->nullable();    
             $table->string('seo_keywords')->nullable();     
             $table->timestamps();
-        });
+        });        
     }
 
     /**

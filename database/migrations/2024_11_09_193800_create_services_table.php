@@ -13,17 +13,21 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('slug')->unique();             
-            $table->text('definition')->nullable();
-            $table->longText('description')->nullable();      
+            $table->string('name_tr');                       
+            $table->string('name_en')->nullable();           
+            $table->string('slug')->unique();              
+            $table->text('definition_tr')->nullable();       
+            $table->text('definition_en')->nullable();       
+            $table->longText('description_tr')->nullable();  
+            $table->longText('description_en')->nullable();  
+            $table->string('image', 100)->nullable();   
             $table->string('seo_title')->nullable();      
             $table->text('seo_description')->nullable();  
             $table->string('seo_keywords')->nullable();  
             $table->boolean('active')->default(false);
             $table->integer('order')->default(0); 
             $table->timestamps();
-        });
+        });        
     }
 
     /**

@@ -59,11 +59,34 @@
                                                 </div>
                                             </div>
                                             <div class="row mb-4">
-                                                <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Hakkımızda İçeriği</label>
+                                                <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Hakkımızda İçeriği (Türkçe)</label>
                                                 <div class="col-sm-9">
-                                                <textarea id="summernote" name="content">{{$about->content}}</textarea>
+                                                <textarea id="summernote_tr" name="content_tr">{{$about->content_tr}}</textarea>
                                                 <script>
-                                                $('#summernote').summernote({
+                                                $('#summernote_tr').summernote({
+                                                    placeholder: '...',
+                                                    tabsize: 2,
+                                                    height: 300,
+                                                    toolbar: [
+                                                    ['style', ['style']],
+                                                    ['font', ['bold', 'underline', 'clear']],
+                                                    ['color', ['color']],
+                                                    ['para', ['ul', 'ol', 'paragraph']],
+                                                    ['table', ['table']],
+                                                    ['insert', ['link', 'picture', 'video']],
+                                                    ['view', ['fullscreen', 'codeview', 'help']]
+                                                    ]
+                                                });
+                                                </script>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-4">
+                                                <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Hakkımızda İçeriği(İngilizce)</label>
+                                                <div class="col-sm-9">
+                                                <textarea id="summernote_en" name="content_en">{{$about->content_en}}</textarea>
+                                                <script>
+                                                $('#summernote_en').summernote({
                                                     placeholder: '...',
                                                     tabsize: 2,
                                                     height: 300,

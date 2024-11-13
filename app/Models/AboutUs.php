@@ -2,19 +2,22 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\Translatable;
 
 class AboutUs extends Model
 {
-    /** @use HasFactory<\Database\Factories\AboutUsFactory> */
-    use HasFactory;
+    use Translatable;
 
     protected $fillable = [
-        'slug',
-        'content',
-        'seo_title',
-        'seo_description',
-        'seo_keywords',
+        'slug', 'content_tr', 'content_en', 'seo_title',
+        'seo_description', 'seo_keywords'
     ];
+
+    // Dil desteğiyle içerik çağırma
+    public function getContentAttribute()
+    {
+        return $this->translateAttribute('content');
+    }
 }
+
