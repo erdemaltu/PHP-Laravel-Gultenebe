@@ -23,14 +23,18 @@ Route::group(['middleware'=> ['auth:sanctum']],function () {
     Route::post('/hakkimizda', [AboutUsController::class, 'update'])->name('about_us.update');
     #Services
     Route::get('hizmetler', [ServiceController::class, 'index'])->name('services.index');
-    Route::get('althizmetler-olusturma-{id}', [ServiceController::class, 'children_create'])->name('services.children_create');
-    Route::get('althizmetler-{id}', [ServiceController::class, 'children'])->name('services.children');
     Route::get('hizmetler-olusturma', [ServiceController::class, 'create'])->name('services.create');
     Route::post('hizmetler-olustur', [ServiceController::class, 'store'])->name('services.store');
-    Route::post('hizmetler-olustur-{id}', [ServiceController::class, 'children_store'])->name('services.children_store');
     Route::get('hizmetler-duzenle-{id}', [ServiceController::class, 'edit'])->name('services.edit');
     Route::post('hizmetler-guncelle-{id}', [ServiceController::class, 'update'])->name('services.update');
     Route::get('hizmetler-sil-{id}', [ServiceController::class, 'destroy'])->name('services.delete');
     Route::get('hizmetler-switch', [ServiceController::class, 'switch'])->name('services.switch');
-    Route::get('/cosmetic/category/show', [ServiceController::class, 'show'])->name('services.show');
+    #Subservices
+    Route::get('althizmetler-olusturma-{id}', [SubServiceController::class, 'create'])->name('subservices.create');
+    Route::post('althizmetler-olustur-{id}', [SubServiceController::class, 'store'])->name('subservices.store');
+    Route::get('althizmetler-duzenle-{id}', [SubServiceController::class, 'edit'])->name('subservices.edit');
+    Route::post('althizmetler-guncelle-{id}', [SubServiceController::class, 'update'])->name('subservices.update');
+    Route::get('althizmetler-sil-{id}', [SubServiceController::class, 'destroy'])->name('subservices.delete');
+    Route::get('althizmetler-switch', [SubServiceController::class, 'switch'])->name('subservices.switch');
+    Route::get('althizmetler-{id}', [SubServiceController::class, 'index'])->name('subservices.index');
 });

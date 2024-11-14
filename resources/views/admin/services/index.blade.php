@@ -66,14 +66,14 @@
                                                         </td>
                                                         <td>{{$rs->name_tr}}</td>
                                                         <td data-field="id">
-                                                            <a href="{{route('services.children',['id'=>$rs->id])}}" class="btn btn-secondary waves-effect waves-light" title="Alt Hizmet">
+                                                            <a href="{{route('subservices.index',['id'=>$rs->id])}}" class="btn btn-secondary waves-effect waves-light" title="Alt Hizmet">
                                                             <i class="fas fa-angle-double-down"></i> Alt Hizmetleri
                                                         </a>
                                                         </td>
                                                         <td>
                                                             <div class="square-switch">
                                                                 <input
-                                                            class="switch" category-id="{{$rs->id}}" type="checkbox" id="square-switch{{$rs->id}}" switch="bool" @if($rs->status == True) checked @endif data-toggle="toggle" />
+                                                            class="switch" service-id="{{$rs->id}}" type="checkbox" id="square-switch{{$rs->id}}" switch="bool" @if($rs->active == 1) checked @endif data-toggle="toggle" />
                                                                     <label for="square-switch{{$rs->id}}" data-on-label="Aktif"
                                                                         data-off-label="Pasif"></label>
                                                             </div>
@@ -103,8 +103,8 @@
     <script>
     $(function() {
         $('.switch').change(function() {
-            id = $(this)[0].getAttribute('category-id');
-            statu=$(this).prop('checked');
+            id = $(this)[0].getAttribute('service-id');
+            statu = $(this).prop('checked') ? "1" : "0";
             $.get("{{route('services.switch')}}", {id:id,statu:statu}, function(data, status){
                 console.log(data);
             });

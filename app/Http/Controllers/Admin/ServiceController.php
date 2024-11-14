@@ -25,8 +25,8 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name_tr' => 'required|string|max:255',
-            'name_en' => 'required|string|max:255',
+            'name_tr' => 'required|string|max:255|unique:services,name_tr',
+            'name_en' => 'required|string|max:255|unique:services,name_en',
             'definition_tr' => 'nullable|string',
             'definition_en' => 'nullable|string',
             'description_tr' => 'nullable|string',
@@ -69,30 +69,67 @@ class ServiceController extends Controller
         return redirect()->route('services.index')->with('success', 'Hizmet başarıyla eklendi.');
     }
 
-    public function edit(Service $service)
+    public function edit($id)
     {
+        $service = Service::find($id);
         return view('admin.services.edit', compact('service'));
     }
 
-    public function update(Request $request, Service $service)
+    public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'slug' => 'required|string|unique:services,slug,' . $service->id,
-            'definition' => 'nullable|string',
-            'description' => 'nullable|string',
-            'seo_title' => 'nullable|string|max:255',
-            'seo_description' => 'nullable|string|max:500',
-            'seo_keywords' => 'nullable|string|max:255',
+            'name_tr' => 'required|string|max:255|unique:services,name_tr,' . $id,
+            'name_en' => 'required|string|max:255|unique:services,name_en,' . $id,
+            'image'=>'image|mimes:jpeg,png,jpg,gif,svg|max:204',
         ]);
+        $service = Service::findOrFail($id);
 
-        $service->update($request->all());
-        return redirect()->route('admin.services.index')->with('success', 'Hizmet başarıyla güncellendi.');
+        if($request->hasFile('image')){
+
+            $destination = 'uploads/services/'.$service->image;  //
+            if(File::exists($destination))                                   //
+            {                                                                //
+                File::delete($destination);                                  //
+            }                                                                //File upload
+            $file = $request->file('image');                                 //
+            $extention = $file->getClientOriginalExtension();                //
+            $filename = time().'.'.$extention;                               //
+            $uploadPath = public_path('uploads/services');        //
+            $file->move($uploadPath, $filename);                             //
+            $service -> image = $filename;                                   //
+        }
+        $service -> name_tr = $request->input('name_tr');
+        $service -> name_en = $request->input('name_en');
+        $service -> slug = Str::of($service->name_tr)->slug('-');
+        $service -> definition_tr = $request->input('definition_tr');
+        $service -> definition_en = $request->input('definition_en');
+        $service -> description_tr = $request->input('description_tr');
+        $service -> description_en = $request->input('description_en');
+        $service -> seo_title = $request->input('seo_title');
+        $service -> seo_description = $request->input('seo_description');
+        $service -> seo_keywords = $request->input('seo_keywords');
+        $service ->save();
+
+        return redirect()->route('services.index')->with('success', 'Hizmet başarıyla güncellendi.');
     }
 
-    public function destroy(Service $service)
+    public function destroy($id)
     {
+        $service = Service::find($id);
+        $destination = 'uploads/services/'.$service->image;
+        if(File::exists($destination))
+        {
+            File::delete($destination);
+        }
         $service->delete();
-        return redirect()->route('admin.services.index')->with('success', 'Hizmet başarıyla silindi.');
+        
+        return redirect()->back();
+    }
+
+    public function switch(Request $request)
+    {
+        $service = Service::findOrFail($request->id);
+        $service->active = $request->statu == "1" ? True : False; 
+        $service -> save();
     }
 }
