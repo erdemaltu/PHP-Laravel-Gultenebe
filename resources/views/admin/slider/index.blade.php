@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title','Hizmetler Listesi')
+@section('title','Slider Listesi')
 
 @section('css')
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
@@ -19,10 +19,10 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0 font-size-18">Hizmetler</h4>
+                                    <h4 class="mb-sm-0 font-size-18">Slider</h4>
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item active">Hizmetler</li>
+                                            <li class="breadcrumb-item active">Slider</li>
                                         </ol>
                                     </div>
 
@@ -35,8 +35,8 @@
                                 <div class="card">
                                     <div class="card-body">
                                     @include('admin.alert')
-                                    <a href="{{route('services.create')}}" type="button" class="btn btn-success waves-effect waves-light">
-                                        <i class="bx bx-list-plus font-size-16 align-middle me-2"></i> Hizmet Ekle
+                                    <a href="{{route('slider.create')}}" type="button" class="btn btn-success waves-effect waves-light">
+                                        <i class="bx bx-list-plus font-size-16 align-middle me-2"></i> Slider Ekle
                                         </a>
                                         <p></p>
                                         <div id="orderSuccess" style="display:none" class="alert alert-success">
@@ -49,39 +49,33 @@
                                                         <th>Sıralama</th>
                                                         <th>Resim</th>
                                                         <th>Başlık</th>
-                                                        <th>Alt Hizmetler</th>
                                                         <th>Durum</th>
                                                         <th>İşlemler</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody id="orders">
-                                                    @foreach ($services as $rs)
-                                                    <tr id="service_{{$rs->id}}">
+                                                    @foreach ($sliders as $rs)
+                                                    <tr id="slider_{{$rs->id}}">
                                                         <td class="text-center" style="width:3%"><i class="fa fa-arrows-alt-v fa-3x handle" style="cursor:move;"></i> </td>
                                                         <td data-field="image">
                                                             @if($rs->image)
-                                                                <img src="{{ asset('uploads/services/'.$rs->image)}}" height="70" alt="">
+                                                                <img src="{{ asset('uploads/sliders/'.$rs->image)}}" height="70" alt="">
                                                             @endif
                                                         </td>
                                                         <td>{{$rs->name_tr}}</td>
-                                                        <td data-field="id">
-                                                            <a href="{{route('subservices.index',['id'=>$rs->id])}}" class="btn btn-secondary waves-effect waves-light" title="Alt Hizmet">
-                                                            <i class="fas fa-angle-double-down"></i> Alt Hizmetleri
-                                                        </a>
-                                                        </td>
                                                         <td>
                                                             <div class="square-switch">
                                                                 <input
-                                                            class="switch" service-id="{{$rs->id}}" type="checkbox" id="square-switch{{$rs->id}}" switch="bool" @if($rs->active == 1) checked @endif data-toggle="toggle" />
+                                                            class="switch" slider-id="{{$rs->id}}" type="checkbox" id="square-switch{{$rs->id}}" switch="bool" @if($rs->active == 1) checked @endif data-toggle="toggle" />
                                                                     <label for="square-switch{{$rs->id}}" data-on-label="Aktif"
                                                                         data-off-label="Pasif"></label>
                                                             </div>
                                                         </td>
                                                         <td style="width: 100px">
-                                                            <a href="{{route('services.edit',['id'=>$rs->id])}}" class="btn btn-info waves-effect waves-light" title="Düzenle">
+                                                            <a href="{{route('slider.edit',['id'=>$rs->id])}}" class="btn btn-info waves-effect waves-light" title="Düzenle">
                                                                 <i class="fas fa-pencil-alt"></i>
                                                             </a>
-                                                            <a href="{{route('services.delete',['id'=>$rs->id])}}" onclick="return confirm('Silinen veri bir daha geri gelmez! Emin misiniz?')" class="btn btn-danger waves-effect waves-light" title="Sil">
+                                                            <a href="{{route('slider.delete',['id'=>$rs->id])}}" onclick="return confirm('Silinen veri bir daha geri gelmez! Emin misiniz?')" class="btn btn-danger waves-effect waves-light" title="Sil">
                                                                 <i class="fas fa-trash-alt"></i>
                                                             </a>
                                                         </td>
@@ -109,7 +103,7 @@
         handle:'.handle',
         update:function(){
             var siralama = $('#orders').sortable('serialize');
-            $.get("{{route('services.order')}}?"+siralama,function(data,status){
+            $.get("{{route('slider.order')}}?"+siralama,function(data,status){
             $("#orderSuccess").show().delay(1000).fadeOut();
             });
         }
@@ -118,9 +112,9 @@
     <script>
     $(function() {
         $('.switch').change(function() {
-            id = $(this)[0].getAttribute('service-id');
+            id = $(this)[0].getAttribute('slider-id');
             statu = $(this).prop('checked') ? "1" : "0";
-            $.get("{{route('services.switch')}}", {id:id,statu:statu}, function(data, status){
+            $.get("{{route('slider.switch')}}", {id:id,statu:statu}, function(data, status){
                 console.log(data);
             });
         })

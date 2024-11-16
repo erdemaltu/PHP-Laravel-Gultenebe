@@ -13,8 +13,15 @@ class ServiceController extends Controller
 {
     public function index()
     {
-        $services = Service::all();
+        $services = Service::orderBy('order','asc')->get();
         return view('admin.services.index', compact('services'));
+    }
+
+    public function orders(Request $request)
+    {
+        foreach($request->get('service') as $key => $order){
+            Service::where('id',$order)->update(['order'=>$key]);
+        }
     }
 
     public function create()
@@ -37,6 +44,7 @@ class ServiceController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
+        $last=Service::orderBy('order','desc')->first();
         $service = new Service;
         $service -> name_tr = $request->input('name_tr');
         $service -> name_en = $request->input('name_en');
@@ -48,6 +56,7 @@ class ServiceController extends Controller
         $service -> seo_title = $request->input('seo_title');
         $service -> seo_description = $request->input('seo_description');
         $service -> seo_keywords = $request->input('seo_keywords');
+        $service->order=$last?$last->order+1:1;
         if($request->hasFile('image')){
             $destination = 'uploads/services/'.$service->image;               //
             if(File::exists($destination))                                    //

@@ -24,12 +24,17 @@
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-dashboard" role="button">
+                        <a class="nav-link dropdown-toggle arrow-none" href="{{route('packages.index')}}" id="topnav-dashboard" role="button">
                             <i class="fas fa-users"></i><span key="t-dashboards"> Paketler</span>
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-dashboard" role="button">
+                        <a class="nav-link dropdown-toggle arrow-none" href="{{route('slider.index')}}" id="topnav-dashboard" role="button">
+                            <i class="fas fa-users"></i><span key="t-dashboards"> Slider</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle arrow-none" href="{{route('packages.index')}}" id="topnav-dashboard" role="button">
                             <i class="fas fa-users"></i><span key="t-dashboards"> Gelen Kutusu</span>
                         </a>
                     </li>
