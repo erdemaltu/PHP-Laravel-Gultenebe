@@ -8,11 +8,13 @@ use App\Http\Controllers\Admin\SubServiceController;
 use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\ContactFormController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Frontend\HomeController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+### Frontend ###
 
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+### Admin ###
 //login
 Route::get('/giris', [AuthController::class, 'login'])->name('login');
 Route::post('/giriskontrol', [AuthController::class, 'logincheck'])->name('admin_logincheck');

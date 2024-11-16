@@ -105,8 +105,8 @@ class SliderController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name_tr' => 'required|string|max:255|unique:sliders,name_tr',
-            'name_en' => 'required|string|max:255|unique:sliders,name_en',
+            'name_tr' => 'required|string|max:255|unique:sliders,name_tr,' . $id,
+            'name_en' => 'required|string|max:255|unique:sliders,name_en,' . $id,
             'description_tr' => 'nullable|string',
             'description_en' => 'nullable|string',
         ]);

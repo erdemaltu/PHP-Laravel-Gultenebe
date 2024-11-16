@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title','Kampanya Düzenleme')
+@section('title','Slider Düzenleme')
 
 @section('javascript')
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -21,12 +21,12 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0 font-size-18"><A>Kampanya Düzenleme</A></h4>
+                                    <h4 class="mb-sm-0 font-size-18"><A>Slider Düzenleme</A></h4>
 
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="{{ route('admin_campaign') }}">Kampanyalar</a></li>
-                                            <li class="breadcrumb-item active">Kampanya Düzenleme</li>
+                                            <li class="breadcrumb-item"><a href="{{ route('slider.index') }}">Slider</a></li>
+                                            <li class="breadcrumb-item active">Slider Düzenleme</li>
                                         </ol>
                                     </div>
 
@@ -40,22 +40,28 @@
                                     <div class="card-body">
                                         <h4 class="card-title mb-4">Düzenle</h4>
                                         @include('admin.alert')
-                                        <form action="{{route('admin_campaign_update',['id'=>$campaign->id])}}" method="post" enctype="multipart/form-data">
+                                        <form action="{{route('slider.update',['id'=>$slider->id])}}" method="post" enctype="multipart/form-data">
                                             @csrf
                                             <div class="row mb-4">
-                                                <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">İsim</label>
+                                                <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Başlık (Türkçe)</label>
                                                 <div class="col-sm-9">
-                                                  <input type="text" class="form-control" id="horizontal-firstname-input" name="name" placeholder="...." value="{{$campaign->name}}">
+                                                  <input type="text" class="form-control" id="horizontal-firstname-input" name="name_tr" placeholder="...." value="{{$slider->name_tr}}">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-4">
+                                                <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Başlık (İngilizce)</label>
+                                                <div class="col-sm-9">
+                                                  <input type="text" class="form-control" id="horizontal-firstname-input" name="name_en" placeholder="...." value="{{$slider->name_en}}">
                                                 </div>
                                             </div>
                                             <div class="row mb-4">
                                                 <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Resim</label>
                                                 <div class="col-sm-9">
-                                                    @if($campaign->image)
+                                                    @if($slider->image)
                                                     <div class="row">
                                                         <div class="col-lg-2">
                                                             <div class="card border border-secondary">
-                                                                <img src="{{ asset('uploads/campaigns/'.$campaign->image)}}" class="rounded me-2" alt="200x200" width="120" data-holder-rendered="true">
+                                                                <img src="{{ asset('uploads/sliders/'.$slider->image)}}" class="rounded me-2" alt="200x200" width="120" data-holder-rendered="true">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -64,30 +70,11 @@
                                                 </div>
                                             </div>
                                             <div class="row mb-4">
-                                                <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Bitiş Tarihi</label>
+                                                <label for="horizontal-email-input" class="col-sm-3 col-form-label">İçerik (Türkçe)</label>
                                                 <div class="col-sm-9">
-                                                  <input type="date" class="form-control" id="horizontal-firstname-input" name="end_date" placeholder="...." value="{{$campaign->end_date}}">
-                                                </div>
-                                            </div>
-                                            <div class="row mb-4">
-                                                <label for="horizontal-email-input" class="col-sm-3 col-form-label">Minimum Ödeme</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="form-control" id="horizontal-email-input" name="min_bas_pri" placeholder="...." value="{{$campaign->min_bas_pri}}">
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="row mb-4">
-                                                <label for="horizontal-email-input" class="col-sm-3 col-form-label">Tip</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="form-control" id="horizontal-email-input" name="type" placeholder="...." value="{{$campaign->type}}">
-                                                </div>
-                                            </div>
-                                            <div class="row mb-4">
-                                                <label for="horizontal-email-input" class="col-sm-3 col-form-label">Tanım</label>
-                                                <div class="col-sm-9">
-                                                    <textarea id="summernote" name="description">{{$campaign->description}}</textarea>
+                                                    <textarea id="summernote_tr" name="description_tr">{{$slider->description_tr}}</textarea>
                                                 <script>
-                                                $('#summernote').summernote({
+                                                $('#summernote_tr').summernote({
                                                     placeholder: '...',
                                                     tabsize: 2,
                                                     height: 250,
@@ -105,16 +92,25 @@
                                                 </div>
                                             </div>
                                             <div class="row mb-4">
-                                                <label class="col-sm-3 col-form-labell">Durum</label>
+                                                <label for="horizontal-email-input" class="col-sm-3 col-form-label">İçerik (İngilizce)</label>
                                                 <div class="col-sm-9">
-                                                    <select name="status"  class="form-select">
-                                                        <option selected>{{$campaign->status}}</option>
-                                                        @if($campaign->status == 'Pasif')
-                                                        <option>Aktif</option>
-                                                        @else 
-                                                        <option>Pasif</option>
-                                                        @endif
-                                                    </select>
+                                                    <textarea id="summernote_en" name="description_en">{{$slider->description_en}}</textarea>
+                                                <script>
+                                                $('#summernote_en').summernote({
+                                                    placeholder: '...',
+                                                    tabsize: 2,
+                                                    height: 250,
+                                                    toolbar: [
+                                                    ['style', ['style']],
+                                                    ['font', ['bold', 'underline', 'clear']],
+                                                    ['color', ['color']],
+                                                    ['para', ['ul', 'ol', 'paragraph']],
+                                                    ['table', ['table']],
+                                                    ['insert', ['link', 'picture', 'video']],
+                                                    ['view', ['fullscreen', 'codeview', 'help']]
+                                                    ]
+                                                });
+                                                </script>
                                                 </div>
                                             </div>
 
@@ -122,7 +118,7 @@
                                                 <div class="col-sm-9">
 
                                                     <div>
-                                                        <button type="submit" class="btn btn-primary w-md">Kampanya Düzenle</button>
+                                                        <button type="submit" class="btn btn-primary w-md">Slider Düzenle</button>
                                                     </div>
                                                 </div>
                                             </div>
