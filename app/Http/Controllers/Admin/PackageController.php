@@ -59,7 +59,7 @@ class PackageController extends Controller
         $package -> price = $request->input('price');
         $package->save();
         //toastr()->success('Başarılı', 'Sayfa başarıyla oluşturuldu.');
-        return redirect()->route('admin_package');
+        return redirect()->route('packages.index');
     }
 
 

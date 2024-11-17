@@ -1,5 +1,15 @@
 <section id="billboard" class="position-relative d-flex align-items-center py-5 bg-light-gray"
-      style="background-image: url(images/banner-image-bg.jpg); background-size: cover; background-repeat: no-repeat; background-position: center; height: 800px;">
+      style="background-image: url({{ asset('frontend')}}/images/midwife.png); background-size: cover; background-repeat: no-repeat; background-position: center; height: 800px;">
+      <!-- Pembe Overlay -->
+      <div class="overlay" style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 192, 203, 0.5); /* Pembe tonu */
+            z-index: 1;">
+      </div>
       <div class="position-absolute end-0 pe-0 pe-xxl-5 me-0 me-xxl-5 swiper-next main-slider-button-next">
         <svg class="chevron-forward-circle d-flex justify-content-center align-items-center p-2" width="80" height="80">
           <use xlink:href="#alt-arrow-right-outline"></use>

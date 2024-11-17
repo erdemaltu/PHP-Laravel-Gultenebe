@@ -55,18 +55,6 @@
                                                 </div>
                                             </div>
                                             <div class="row mb-4">
-                                                <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Tanım (Türkçe)</label>
-                                                <div class="col-sm-9">
-                                                  <input type="text" class="form-control" id="horizontal-firstname-input" name="definition_tr" placeholder="...." value="{{old('definition_tr')}}" required>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-4">
-                                                <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Tanım (İngilizce)</label>
-                                                <div class="col-sm-9">
-                                                  <input type="text" class="form-control" id="horizontal-firstname-input" name="definition_en" placeholder="...." value="{{old('definition_en')}}" required>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-4">
                                                 <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">SEO Başlık</label>
                                                 <div class="col-sm-9">
                                                   <input type="text" class="form-control" id="horizontal-firstname-input" name="seo_title" placeholder="...." value="{{old('seo_title')}}">

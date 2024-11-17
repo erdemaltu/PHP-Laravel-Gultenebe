@@ -34,7 +34,7 @@
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle arrow-none" href="{{route('packages.index')}}" id="topnav-dashboard" role="button">
+                        <a class="nav-link dropdown-toggle arrow-none" href="{{route('contant_form.index')}}" id="topnav-dashboard" role="button">
                             <i class="fas fa-users"></i><span key="t-dashboards"> Gelen Kutusu</span>
                         </a>
                     </li>
