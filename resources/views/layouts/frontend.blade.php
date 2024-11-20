@@ -19,6 +19,100 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+      .dropdown-menu .dropdown-menu {
+          position: absolute;
+          top: 0;
+          left: 100%;
+          margin-top: -5px;
+          margin-left: 0;
+          border-radius: 0.25rem;
+      }
+
+      .dropdown:hover > .dropdown-menu {
+          display: block;
+      }
+
+      .dropdown-item:hover {
+          background-color: #f8f9fa;
+          color: #F86D72;
+      }
+
+      .dropdown-arrow {
+          float: right;
+          font-size: 12px;
+          margin-left: 5px;
+          color: #6c757d; 
+      }
+
+      .dropdown:hover .dropdown-arrow {
+          color: #F86D72; 
+      }
+
+
+      .dropdown-menu {
+          overflow: visible;
+      }
+
+      #hero {
+          height: 300px;
+      }
+
+      @media (max-width: 768px) {
+          #hero {
+              height: 200px; 
+          }
+
+          #hero h1 {
+              font-size: 1.5rem;
+          }
+      }
+
+      .img-fluid {
+          border-radius: 8px; 
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+          max-height: 500px; 
+          object-fit: cover; 
+      }
+
+      @media (max-width: 768px) {
+          .img-fluid {
+              max-height: 300px; 
+          }
+      }
+
+      .text-justify {
+          text-align: justify;
+      }
+
+      @media (max-width: 768px) {
+          .text-justify {
+              text-align: left; 
+          }
+
+          .container h1 {
+              font-size: 1.75rem;
+          }
+
+          .container p {
+              font-size: 0.9rem; 
+          }
+      }
+      /* Resim Ayarları */
+.service-image {
+    max-width: 100%; /* Sayfanın genişliğini aşmasın */
+    max-height: 400px; /* Maksimum yüksekliği sınırla */
+    height: auto; /* Oranı koruyarak yüksekliği otomatik ayarla */
+    object-fit: cover; /* Görüntüyü düzgün şekilde kırp */
+    margin: 0 auto; /* Ortala */
+}
+
+@media (max-width: 768px) {
+    
+}
+
+
+    </style>
   </head>
   <body>
     @include('frontend._header')

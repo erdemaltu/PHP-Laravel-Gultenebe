@@ -20,7 +20,7 @@ class HomeController extends Controller
         return view('frontend.homepage.index',['sliders'=>$sliders, 'services'=>$services]);
     }
 
-    public function about_us()
+    public function aboutUs()
     {
         $about_us = AboutUs::first();
         return view('frontend.about_us.index',['about_us'=>$about_us]);
@@ -32,8 +32,28 @@ class HomeController extends Controller
         return view('frontend.packages.index',['packages'=>$packages]);
     }
 
-    public function contact_form()
+    public function contactForm()
     {
         return view('frontend.contact_form.index');
+    }
+
+    public static function getServicesWithSubServices()
+    {
+        return Service::with('subServices')->where('active', 1)->get();
+    }
+
+    public function service($slug)
+    {
+        $service = Service::where('slug', $slug)->where('active', 1)->firstOrFail();
+        $subservices = $service->subServices()->where('active', 1)->get();
+
+        return view('frontend.services.index', compact('service', 'subservices'));
+    }
+
+    public function subService($slug)
+    {
+        $subService = SubService::where('slug', $slug)->where('active', 1)->firstOrFail();
+
+        return view('frontend.services.sub_service.index', compact('subService'));
     }
 }

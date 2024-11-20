@@ -70,21 +70,11 @@
                 <div class="footer-menu text-capitalize">
                   <h5 class="widget-title pb-2">Hizmetlerimiz</h5>
                   <ul class="menu-list list-unstyled">
+                    @foreach ($services as $service)
                     <li class="menu-item mb-1">
-                      <a href="#">Track Your Order</a>
+                      <a href="{{ route('services', $service->slug) }}">{{ $service->name_tr }}</a>
                     </li>
-                    <li class="menu-item mb-1">
-                      <a href="#">Returns Policies</a>
-                    </li>
-                    <li class="menu-item mb-1">
-                      <a href="#">Shipping + Delivery</a>
-                    </li>
-                    <li class="menu-item mb-1">
-                      <a href="#">Contact Us</a>
-                    </li>
-                    <li class="menu-item mb-1">
-                      <a href="#">Faqs</a>
-                    </li>
+                    @endforeach
                   </ul>
                 </div>
               </div>
@@ -92,9 +82,9 @@
                 <div class="footer-menu contact-item">
                   <h5 class="widget-title text-capitalize pb-2">Bize Ulaşın</h5>
                   <a href="https://wa.me/905394031063" target="_blank" class="whatsapp-link">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="50" height="50">
-      <span>WhatsApp ile İletişime Geç</span>
-    </a>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="50" height="50">
+                    <span>WhatsApp ile İletişime Geç</span>
+                  </a>
                 </div>
               </div>
             </div>

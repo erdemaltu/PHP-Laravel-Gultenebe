@@ -109,75 +109,69 @@
     </div>
 
     <header id="header" class="site-header">
-
-      <nav id="header-nav" class="navbar navbar-expand-lg py-3">
+    <nav id="header-nav" class="navbar navbar-expand-lg py-3">
         <div class="container">
-          <a class="navbar-brand" href="{{route('home')}}">
-            <img src="{{ asset('frontend')}}/images/gultenebe.png" class="logo">
-          </a>
-          <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas"
-            data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
-            <svg class="navbar-icon">
-              <use xlink:href="#navbar-icon"></use>
-            </svg>
-          </button>
-          <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
-            <div class="offcanvas-header px-4 pb-0">
-              <a class="navbar-brand" href="{{route('home')}}">
-                <img src="{{ asset('frontend')}}/images/gultenebe.png" class="logo">
-              </a>
-              <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"
-                data-bs-target="#bdNavbar"></button>
+            <a class="navbar-brand" href="{{ route('home') }}">
+                <img src="{{ asset('frontend') }}/images/gultenebe.png" class="logo">
+            </a>
+            <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <svg class="navbar-icon">
+                    <use xlink:href="#navbar-icon"></use>
+                </svg>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
+                <div class="offcanvas-header px-4 pb-0">
+                    <a class="navbar-brand" href="{{ route('home') }}">
+                        <img src="{{ asset('frontend') }}/images/gultenebe.png" class="logo">
+                    </a>
+                    <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"
+                        data-bs-target="#bdNavbar"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul id="navbar"
+                        class="navbar-nav text-uppercase justify-content-start justify-content-lg-center align-items-start align-items-lg-center flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link me-4 {{ request()->path() == 'anasayfa' ? 'active' : '' }}" href="{{ route('home') }}">Anasayfa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link me-4 {{ request()->path() == 'hakkimizda' ? 'active' : '' }}" href="{{ route('about_us') }}">Hakkımızda</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                          <a class="nav-link me-4 dropdown-toggle {{ request()->is('hizmet*') || request()->is('alt-hizmet*') ? 'active' : '' }}" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Hizmetler</a>
+                          <ul class="dropdown-menu animate slide border">
+                              @foreach ($services as $service)
+                              <li class="dropdown position-relative">
+                                  <a href="{{ route('services', $service->slug) }}" class="dropdown-item fw-light">
+                                      {{ $service->name_tr }}
+                                      @if ($service->subServices->count())
+                                          <span class="dropdown-arrow">&#9654;</span>
+                                      @endif
+                                  </a>
+                                  @if ($service->subServices->count())
+                                      <ul class="dropdown-menu dropdown-menu-end border">
+                                          @foreach ($service->subServices as $subService)
+                                              <li>
+                                                  <a href="{{ route('subservices', $subService->slug) }}" class="dropdown-item fw-light">
+                                                      {{ $subService->name_tr }}
+                                                  </a>
+                                              </li>
+                                          @endforeach
+                                      </ul>
+                                  @endif
+                              </li>
+                              @endforeach
+                          </ul>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link me-4 {{ request()->path() == 'paketler' ? 'active' : '' }}" href="{{ route('packages') }}">Paketler</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link me-4 {{ request()->path() == 'iletisim' ? 'active' : '' }}" href="{{ route('contact_form') }}">İletişim</a>
+                      </li>
+                    </ul>
+                </div>
             </div>
-            <div class="offcanvas-body">
-              <ul id="navbar"
-                class="navbar-nav text-uppercase justify-content-start justify-content-lg-center align-items-start align-items-lg-center flex-grow-1">
-                <li class="nav-item">
-                  <a class="nav-link me-4 {{ request()->path() == 'anasayfa' ? 'active' : '' }}" href="{{route('home')}}">Anasayfa</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link me-4 {{ request()->path() == 'hakkimizda' ? 'active' : '' }}" href="{{route('about_us')}}">Hakkımızda</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link me-4 dropdown-toggle {{ !(request()->is('anasayfa') || request()->is('hakkimizda') || request()->is('paketler') || request()->is('iletisim')) ? 'active' : '' }}" data-bs-toggle="dropdown" href="#" role="button"
-                    aria-expanded="false">Hizmetler</a>
-                  <ul class="dropdown-menu animate slide border">
-                    <li>
-                      <a href="index.html" class="dropdown-item fw-light">About</a>
-                    </li>
-                    <li>
-                      <a href="index.html" class="dropdown-item fw-light">Shop</a>
-                    </li>
-                    <li>
-                      <a href="index.html" class="dropdown-item fw-light">Single Product</a>
-                    </li>
-                    <li>
-                      <a href="index.html" class="dropdown-item fw-light">Cart</a>
-                    </li>
-                    <li>
-                      <a href="index.html" class="dropdown-item fw-light">Checkout</a>
-                    </li>
-                    <li>
-                      <a href="index.html" class="dropdown-item fw-light">Blog</a>
-                    </li>
-                    <li>
-                      <a href="index.html" class="dropdown-item fw-light">Single Post</a>
-                    </li>
-                    <li>
-                      <a href="index.html" class="dropdown-item fw-light">Contact</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link me-4 {{ request()->path() == 'paketler' ? 'active' : '' }}" href="{{route('packages')}}">Paketler</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link me-4 {{ request()->path() == 'iletisim' ? 'active' : '' }}" href="index.html">İletişim</a>
-                </li>
-              </ul>
-            </div>
-          </div>
         </div>
-      </nav>
-
-    </header>
+    </nav>
+</header>
