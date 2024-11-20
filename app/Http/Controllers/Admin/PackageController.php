@@ -58,7 +58,8 @@ class PackageController extends Controller
         $package -> seo_keywords = $request->input('seo_keywords');
         $package -> price = $request->input('price');
         $package->save();
-        //toastr()->success('Başarılı', 'Sayfa başarıyla oluşturuldu.');
+
+        toastr()->success('Paket başarıyla oluşturuldu.');
         return redirect()->route('packages.index');
     }
 
@@ -91,6 +92,7 @@ class PackageController extends Controller
         ]);
         $package = Package::find($id);
         $package ->update($request->all());
+        toastr()->success('Paket başarıyla güncellendi.');
         return redirect()->route('packages.index');
     }
 
@@ -104,7 +106,7 @@ class PackageController extends Controller
     {
         $package = Package::find($id);
         $package->delete();
-        //toastr()->success('Başarılı', 'Sayfa başarıyla silindi.');
+        toastr()->success('Paket başarıyla silindi.');
         return redirect()->route('packages.index');
     }
 }

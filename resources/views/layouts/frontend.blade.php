@@ -11,6 +11,7 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="shortcut icon" href="{{ asset('frontend')}}/images/favicon.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend')}}/style.css">
@@ -58,14 +59,12 @@
           height: 300px;
       }
 
-      @media (max-width: 768px) {
-          #hero {
-              height: 200px; 
-          }
-
-          #hero h1 {
-              font-size: 1.5rem;
-          }
+      .service-image {
+          max-width: 100%; 
+          max-height: 400px; 
+          height: auto; 
+          object-fit: cover; 
+          margin: 0 auto; 
       }
 
       .img-fluid {
@@ -75,14 +74,19 @@
           object-fit: cover; 
       }
 
-      @media (max-width: 768px) {
-          .img-fluid {
-              max-height: 300px; 
-          }
-      }
-
       .text-justify {
           text-align: justify;
+      }
+
+      .rounded-input {
+          border-radius: 25px;
+          padding: 10px;
+      }
+
+      .card {
+          border: none;
+          box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+          background-color: rgba(100, 149, 237, 0.1); 
       }
 
       @media (max-width: 768px) {
@@ -96,22 +100,20 @@
 
           .container p {
               font-size: 0.9rem; 
+          }  
+
+          #hero {
+              height: 200px; 
           }
-      }
-      /* Resim Ayarları */
-.service-image {
-    max-width: 100%; /* Sayfanın genişliğini aşmasın */
-    max-height: 400px; /* Maksimum yüksekliği sınırla */
-    height: auto; /* Oranı koruyarak yüksekliği otomatik ayarla */
-    object-fit: cover; /* Görüntüyü düzgün şekilde kırp */
-    margin: 0 auto; /* Ortala */
-}
 
-@media (max-width: 768px) {
-    
-}
+          #hero h1 {
+              font-size: 1.5rem;
+          }
 
-
+          .img-fluid {
+              max-height: 300px; 
+          }
+        }  
     </style>
   </head>
   <body>

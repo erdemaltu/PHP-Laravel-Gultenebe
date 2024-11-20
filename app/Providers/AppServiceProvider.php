@@ -21,9 +21,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::composer('*', function ($view) {
-            $services = HomeController::getServicesWithSubServices();
-            $view->with('services', $services);
-        });
+        if (!app()->runningInConsole() && !app()->runningUnitTests() && $this->isFrontendRoute()) {
+            View::composer('*', function ($view) {
+                $services = \App\Http\Controllers\Frontend\HomeController::getServicesWithSubServices();
+                $view->with('services', $services);
+            });
+        }
+    }
+
+        private function isFrontendRoute()
+    {
+        return !request()->is('admin*'); 
     }
 }

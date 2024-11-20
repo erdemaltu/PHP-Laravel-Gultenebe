@@ -15,9 +15,10 @@ use App\Http\Controllers\Frontend\HomeController;
 Route::get('/anasayfa', [HomeController::class, 'index'])->name('home');
 Route::get('/hakkimizda', [HomeController::class, 'aboutUs'])->name('about_us');
 Route::get('/paketler', [HomeController::class, 'packages'])->name('packages');
-Route::get('/iletisim', [HomeController::class, 'contactForm'])->name('contact_form');
 Route::get('/hizmet/{slug}', [HomeController::class, 'service'])->name('services');
 Route::get('/alt-hizmet/{slug}', [HomeController::class, 'subService'])->name('subservices');
+Route::get('/iletisim', [HomeController::class, 'contactForm'])->name('contact_form');
+Route::post('/iletisim', [HomeController::class, 'contactFormStore'])->name('contact_form.store');
 
 ### Admin ###
 //login

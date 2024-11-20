@@ -44,8 +44,8 @@ class ContactFormController extends Controller
         $contact_form = ContactForm::find($id);
         $contact_form->note = $request->input('note');
         $contact_form->save();
-        //toastr()->success('Başarılı', 'Mesaj notu başarıyla güncellendi.');
-        return redirect()->route('contact_form');
+        toastr()->success('Mesaj notu başarıyla güncellendi.');
+        return redirect()->route('contant_form.index');
     }
 
     /**
@@ -58,7 +58,7 @@ class ContactFormController extends Controller
     {
         $contact_form = ContactForm::find($id);
         $contact_form->delete();
-        //toastr()->success('Başarılı', 'Mesaj başarıyla silindi.');
-        return redirect()->route('contact_form');
+        toastr()->success('Mesaj başarıyla silindi.');
+        return redirect()->route('contant_form.index');
     }
 }

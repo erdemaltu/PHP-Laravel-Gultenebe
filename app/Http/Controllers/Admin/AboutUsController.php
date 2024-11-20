@@ -26,7 +26,7 @@ class AboutUsController extends Controller
 
         $about = AboutUs::first();
         $about->update($request->only('content_tr', 'content_en', 'seo_title', 'seo_description', 'seo_keywords'));
-
-        return redirect()->route('about_us.edit')->with('success', 'Hakkımızda başarıyla güncellendi.');
+        toastr()->success('Hakkımızda başarıyla güncellendi.');
+        return redirect()->route('about_us.edit');
     }
 }

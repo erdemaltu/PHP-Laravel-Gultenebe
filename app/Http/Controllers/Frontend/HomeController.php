@@ -32,11 +32,6 @@ class HomeController extends Controller
         return view('frontend.packages.index',['packages'=>$packages]);
     }
 
-    public function contactForm()
-    {
-        return view('frontend.contact_form.index');
-    }
-
     public static function getServicesWithSubServices()
     {
         return Service::with('subServices')->where('active', 1)->get();
@@ -55,5 +50,28 @@ class HomeController extends Controller
         $subService = SubService::where('slug', $slug)->where('active', 1)->firstOrFail();
 
         return view('frontend.services.sub_service.index', compact('subService'));
+    }
+
+    public function contactForm()
+    {
+        return view('frontend.contact_form.index');
+    }
+
+    public function contactFormStore(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:50',
+            'email' => 'nullable|email|max:50',
+            'phone' => 'nullable|string|max:20',
+            'subject' => 'nullable|string|max:100',
+            'message' => 'nullable|string|max:255',
+        ]);
+
+        $validatedData['IP'] = $request->ip();
+        $validatedData['status'] = 'Yeni';
+
+        ContactForm::create($validatedData);
+
+        return redirect()->back()->with('success', 'Mesajınız başarıyla gönderildi.');
     }
 }

@@ -6,45 +6,6 @@
               <div class="col-lg-3 col-sm-6 pb-3">
                 <div class="footer-menu">
                   <img src="{{ asset('frontend')}}/images/gultenebe.png" alt="logo" class="img-fluid mb-2">
-                  <div class="social-links">
-                    <ul class="d-flex list-unstyled">
-                      <li>
-                        <a href="#">
-                          <svg class="facebook">
-                            <use xlink:href="#facebook" />
-                          </svg>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <svg class="instagram">
-                            <use xlink:href="#instagram" />
-                          </svg>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <svg class="twitter">
-                            <use xlink:href="#twitter" />
-                          </svg>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <svg class="linkedin">
-                            <use xlink:href="#linkedin" />
-                          </svg>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <svg class="youtube">
-                            <use xlink:href="#youtube" />
-                          </svg>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
                 </div>
               </div>
               <div class="col-lg-2 col-sm-6 pb-3">
@@ -52,16 +13,16 @@
                   <h5 class="widget-title pb-2">Hızlı Likler</h5>
                   <ul class="menu-list list-unstyled text-capitalize">
                     <li class="menu-item mb-1">
-                      <a href="#">Anasayfa</a>
+                      <a href="{{ route('home') }}">Anasayfa</a>
                     </li>
                     <li class="menu-item mb-1">
-                      <a href="#">Hakkımızda</a>
+                      <a href="{{ route('about_us') }}">Hakkımızda</a>
                     </li>
                     <li class="menu-item mb-1">
-                      <a href="#">Paketler</a>
+                      <a href="{{ route('packages') }}">Paketler</a>
                     </li>
                     <li class="menu-item mb-1">
-                      <a href="#">İletişim</a>
+                      <a href="{{ route('contact_form') }}">İletişim</a>
                     </li>
                   </ul>
                 </div>

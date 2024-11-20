@@ -3,14 +3,7 @@
 @section('title',$service->title.' Hizmetleri Listesi')
 
 @section('css')
-<!-- DataTables -->
-<link href="{{ asset('backassets')}}/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-<link href="{{ asset('backassets')}}/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-
-<!-- Responsive datatable examples -->
-<link href="{{ asset('backassets')}}/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-
-<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -43,34 +36,45 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <a href="{{route('subservices.create',['id'=>$service->id])}}" type="button" class="btn btn-success waves-effect waves-light">
-                                        <i class="bx bx-list-plus font-size-16 align-middle me-2"></i>{{$service->title}} Alt Hizmetleri Ekle
+                                    @include('admin.alert')
+                                    <a href="{{route('subservices.create',['id'=>$service->id])}}" type="button" class="btn btn-success waves-effect waves-light">
+                                        <i class="bx bx-list-plus font-size-16 align-middle me-2"></i> {{$service->title}} Alt Hizmetleri Ekle
                                         </a>
                                         <p></p>
-                                            <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
+                                        <div id="orderSuccess" style="display:none" class="alert alert-success">
+                                            Sıralama başarıyla güncellendi.
+                                        </div>
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                                 <thead>
                                                     <tr>
+                                                        <th>Sıralama</th>
                                                         <th>Resim</th>
                                                         <th>Başlık</th>
                                                         <th>Durum</th>
                                                         <th>İşlemler</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                    @foreach ( $subservices as $rs)
-                                                    <tr data-id="{{$rs->id}}">
+                                                <tbody id="orders">
+                                                    @foreach ($subservices as $rs)
+                                                    <tr id="sub_service_{{$rs->id}}">
+                                                        <td class="text-center" style="width:3%"><i class="fa fa-arrows-alt-v fa-3x handle" style="cursor:move;"></i> </td>
                                                         <td data-field="image">
                                                             @if($rs->image)
                                                                 <img src="{{ asset('uploads/services/subservices/'.$rs->image)}}" height="70" alt="">
                                                             @endif
                                                         </td>
                                                         <td>{{$rs->name_tr}}</td>
+                                                        <td data-field="id">
+                                                            <a href="{{route('subservices.index',['id'=>$rs->id])}}" class="btn btn-secondary waves-effect waves-light" title="Alt Hizmet">
+                                                            <i class="fas fa-angle-double-down"></i> Alt Hizmetleri
+                                                        </a>
+                                                        </td>
                                                         <td>
                                                             <div class="square-switch">
                                                                 <input
-                                                            class="switch" service-id="{{$rs->id}}" type="checkbox" id="square-switch{{$rs->id}}" switch="bool" @if($rs->active == 1) checked @endif data-toggle="toggle" />
-                                                                    <label for="square-switch{{$rs->id}}" data-on-label="Aktif"
-                                                                        data-off-label="Pasif"></label>
+                                                            class="switch" sub_service-id="{{$rs->id}}" type="checkbox" id="square-switch{{$rs->id}}" switch="bool" @if($rs->active == 1) checked @endif />
+                                                                    <label for="square-switch{{$rs->id}}"  data-on-label="Aktif" data-off-label="Pasif"></label>
                                                             </div>
                                                         </td>
                                                         <td style="width: 100px">
@@ -85,20 +89,36 @@
                                                     @endforeach
                                                 </tbody>
                                             </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div> <!-- end col -->
                         </div> <!-- end row -->
-
+                        
                     </div> <!-- container-fluid -->
                 </div>
                 <!-- End Page-content -->
 @endsection
 @section('footer')
-<script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+    <script>
+        $('#orders').sortable({
+        handle:'.handle',
+        update:function(){
+            var siralama = $('#orders').sortable('serialize');
+            $.get("{{route('subservices.order')}}?"+siralama,function(data,status){
+            $("#orderSuccess").show().delay(1000).fadeOut();
+            });
+        }
+        });
+    </script>
+    <script>
     $(function() {
         $('.switch').change(function() {
-            id = $(this)[0].getAttribute('service-id');
+            id = $(this)[0].getAttribute('sub_service-id');
             statu = $(this).prop('checked') ? "1" : "0";
             $.get("{{route('subservices.switch')}}", {id:id,statu:statu}, function(data, status){
                 console.log(data);
@@ -106,26 +126,4 @@
         })
     })
     </script>
-    <!-- Required datatable js -->
-    <script src="{{ asset('backassets')}}/libs/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="{{ asset('backassets')}}/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <!-- Buttons examples -->
-    <script src="{{ asset('backassets')}}/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="{{ asset('backassets')}}/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
-    <script src="{{ asset('backassets')}}/libs/jszip/jszip.min.js"></script>
-    <script src="{{ asset('backassets')}}/libs/pdfmake/build/pdfmake.min.js"></script>
-    <script src="{{ asset('backassets')}}/libs/pdfmake/build/vfs_fonts.js"></script>
-    <script src="{{ asset('backassets')}}/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="{{ asset('backassets')}}/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="{{ asset('backassets')}}/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
-    <!-- Responsive examples -->
-    <script src="{{ asset('backassets')}}/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="{{ asset('backassets')}}/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
-
-    <!-- Datatable init js -->
-    <script src="{{ asset('backassets')}}/js/pages/datatables.init.js"></script>
-
-    <script src="{{ asset('backassets')}}/js/app.js"></script>
-
-    <script src="assets/js/pages/form-advanced.init.js"></script>
 @endsection

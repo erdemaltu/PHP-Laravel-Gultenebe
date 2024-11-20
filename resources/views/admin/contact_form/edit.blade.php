@@ -19,7 +19,7 @@
 
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="{{route('admin_message')}}">Mesajlar</a></li>
+                                            <li class="breadcrumb-item"><a href="{{route('contant_form.index')}}">Mesajlar</a></li>
                                             <li class="breadcrumb-item active">Mesaj Detay</li>
                                         </ol>
                                     </div>
@@ -35,36 +35,36 @@
                                     @include('admin.alert')
                                         <h4 class="card-title mb-4">Düzenle</h4>
                                         @include('admin.alert')
-                                        <form action="{{route('admin_message_update',['id'=>$message->id])}}" method="post" enctype="multipart/form-data">
+                                        <form action="{{route('contant_form.update',['id'=>$contact_form->id])}}" method="post" enctype="multipart/form-data">
                                             @csrf
                                             
                                             <table  id="datatable-buttons" class="table table-bordered dt-responsive nowrap w-100">
                                                 <tr>
-                                                    <th>Id</th><td>{{$message->id}}</td>
+                                                    <th>IP</th><td>{{$contact_form->IP}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>İsim</th><td>{{$message->name}}</td>
+                                                    <th>İsim</th><td>{{$contact_form->name}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Email</th><td>{{$message->email}}</td>
+                                                    <th>Email</th><td>{{$contact_form->email}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Telefon</th><td>{{$message->phone}}</td>
+                                                    <th>Telefon</th><td>{{$contact_form->phone}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Konu</th><td>{{$message->subject}}</td>
+                                                    <th>Konu</th><td>{{$contact_form->subject}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Mesaj</th><td>{{$message->message}}</td>
+                                                    <th>Mesaj</th><td>{{$contact_form->message}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Admin Notu</th><td><textarea id="message" class="form-control" placeholder="Notunuzu Giriniz" name="note">{{$message->note}}</textarea></td>
+                                                    <th>Admin Notu</th><td><textarea id="message" class="form-control" placeholder="Notunuzu Giriniz" name="note">{{$contact_form->note}}</textarea></td>
                                                 </tr>
                                                 <tr><th></th>
                                                     <td>
                                                         <div class="col-sm-9">
                                                             <div>
-                                                                <button type="submit" class="btn btn-primary w-md">Mesajı Düzenle</button>
+                                                                <button type="submit" class="btn btn-primary w-md">Not Ekle</button>
                                                             </div>
                                                         </div>
                                                     </td>

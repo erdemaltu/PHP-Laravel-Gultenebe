@@ -10,32 +10,32 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle arrow-none" href="{{ route('admin_home') }}" id="topnav-dashboard" role="button"
                                     >
-                            <i class="bx bx-home-circle me-2"></i><span key="t-dashboards">Anasayfa</span>
+                            <i class="bx bxs-home"></i><span key="t-dashboards">Anasayfa</span>
                         </a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle arrow-none" href="{{route('about_us.edit')}}" id="topnav-dashboard" role="button">
-                            <i class="fas fa-users"></i><span key="t-dashboards"> Hakkımızda</span>
+                            <i class="bx bxs-info-circle"></i><span key="t-dashboards"> Hakkımızda</span>
                         </a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle arrow-none" href="{{route('services.index')}}" id="topnav-dashboard" role="button">
-                            <i class="fas fa-users"></i><span key="t-dashboards"> Hizmetler</span>
+                            <i class="bx bxs-detail"></i><span key="t-dashboards"> Hizmetler</span>
                         </a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle arrow-none" href="{{route('packages.index')}}" id="topnav-dashboard" role="button">
-                            <i class="fas fa-users"></i><span key="t-dashboards"> Paketler</span>
+                            <i class="bx bxs-dollar-circle"></i><span key="t-dashboards"> Paketler</span>
                         </a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle arrow-none" href="{{route('slider.index')}}" id="topnav-dashboard" role="button">
-                            <i class="fas fa-users"></i><span key="t-dashboards"> Slider</span>
+                            <i class="bx bxs-image-add"></i><span key="t-dashboards"> Slider</span>
                         </a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle arrow-none" href="{{route('contant_form.index')}}" id="topnav-dashboard" role="button">
-                            <i class="fas fa-users"></i><span key="t-dashboards"> Gelen Kutusu</span>
+                            <i class="bx bxs-inbox"></i><span key="t-dashboards"> Gelen Kutusu</span>
                         </a>
                     </li>
                 </ul>

@@ -72,13 +72,13 @@ class SliderController extends Controller
             $file->move($uploadPath, $filename);                 //                                    //
             $slider -> image = $filename;                      //
             $slider -> save();
-            //toastr()->success('Başarılı', 'Kampanya başarıyla oluşturuldu.');
+            toastr()->success('Slider başarıyla eklendi.');
             return redirect()->route('slider.index');
         }
         else{
 
             Slider::create($request->all());
-            //toastr()->success('Başarılı', 'Kampanya başarıyla oluşturuldu.');
+            toastr()->success('Slider başarıyla eklendi.');
             return redirect()->route('slider.index');
         }
     }
@@ -131,13 +131,13 @@ class SliderController extends Controller
             $file->move($uploadPath, $filename);                 //                                    //
             $slider -> image = $filename;                      //
             $slider -> save();
-            //toastr()->success('Başarılı', 'Kampanya başarıyla güncellendi.');
+            toastr()->success('Slider başarıyla güncellendi.');
             return redirect()->route('slider.index');
 
         }
         else{
             $slider ->update($request->all());
-            //toastr()->success('Başarılı', 'Kampanya başarıyla güncellendi.');
+            toastr()->success('Slider başarıyla güncellendi.');
             return redirect()->route('slider.index');
         }
     }
@@ -157,7 +157,7 @@ class SliderController extends Controller
             File::delete($destination);
         }
         $slider->delete();
-        //toastr()->success('Başarılı', 'Kampanya başarıyla silindi.');
+        toastr()->success('Slider başarıyla silindi.');
         return redirect()->route('slider.index');
     }
 

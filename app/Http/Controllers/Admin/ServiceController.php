@@ -75,7 +75,8 @@ class ServiceController extends Controller
         }
         $service -> save();
 
-        return redirect()->route('services.index')->with('success', 'Hizmet başarıyla eklendi.');
+        toastr()->success('Hizmet başarıyla eklendi.');
+        return redirect()->route('services.index');
     }
 
     public function edit($id)
@@ -119,7 +120,8 @@ class ServiceController extends Controller
         $service -> seo_keywords = $request->input('seo_keywords');
         $service ->save();
 
-        return redirect()->route('services.index')->with('success', 'Hizmet başarıyla güncellendi.');
+        toastr()->success('Hizmet başarıyla güncellendi.');
+        return redirect()->route('services.index');
     }
 
     public function destroy($id)
@@ -131,7 +133,7 @@ class ServiceController extends Controller
             File::delete($destination);
         }
         $service->delete();
-        
+        toastr()->success('Hizmet başarıyla silindi.');
         return redirect()->back();
     }
 

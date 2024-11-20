@@ -66,7 +66,7 @@
                                                         <td>
                                                             <div class="square-switch">
                                                                 <input
-                                                            class="switch" slider-id="{{$rs->id}}" type="checkbox" id="square-switch{{$rs->id}}" switch="bool" @if($rs->active == 1) checked @endif data-toggle="toggle" />
+                                                            class="switch" slider-id="{{$rs->id}}" type="checkbox" id="square-switch{{$rs->id}}" switch="bool" @if($rs->active == 1) checked @endif />
                                                                     <label for="square-switch{{$rs->id}}" data-on-label="Aktif"
                                                                         data-off-label="Pasif"></label>
                                                             </div>

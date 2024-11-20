@@ -15,8 +15,15 @@ class SubServiceController extends Controller
     public function index($id)
     {
         $service = Service::findOrFail($id);
-        $subservices = SubService::where('service_id',$id)->orderBy('created_at','desc')->get();
+        $subservices = SubService::where('service_id',$id)->orderBy('order','asc')->get();
         return view('admin.services.sub_services.index', compact('subservices', 'service'));
+    }
+
+    public function orders(Request $request)
+    {
+        foreach($request->get('sub_service') as $key => $order){
+            SubService::where('id',$order)->update(['order'=>$key]);
+        }
     }
 
     public function create($id)
@@ -70,7 +77,8 @@ class SubServiceController extends Controller
         }
         $subservices -> save();
 
-        return redirect()->route('subservices.index', ['id'=>$id])->with('success', 'Alt hizmet başarıyla eklendi.');
+        toastr()->success('Alt hizmet başarıyla eklendi.');
+        return redirect()->route('subservices.index', ['id'=>$id]);
     }
 
     public function edit($id)
@@ -113,7 +121,9 @@ class SubServiceController extends Controller
         $subservice -> seo_description = $request->input('seo_description');
         $subservice -> seo_keywords = $request->input('seo_keywords');
         $subservice ->save();
-        return redirect()->route('subservices.index', $subservice->service_id)->with('success', 'Alt hizmet başarıyla güncellendi.');
+
+        toastr()->success('Alt hizmet başarıyla güncellendi.');
+        return redirect()->route('subservices.index', $subservice->service_id);
     }
 
     public function destroy($id)
@@ -125,7 +135,7 @@ class SubServiceController extends Controller
             File::delete($destination);
         }
         $subservice->delete();
-        
+        toastr()->success('Alt hizmet başarıyla silindi.');
         return redirect()->back();
     }
 
