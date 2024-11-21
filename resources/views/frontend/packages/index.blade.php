@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title','Hakkımızda')
+@section('title','Paketler')
 
 @section('content')
 <section id="hero" style="position: relative; background: url('{{ asset('frontend')}}/images/baby.png') no-repeat center center / cover; height: 300px; color: white;">
