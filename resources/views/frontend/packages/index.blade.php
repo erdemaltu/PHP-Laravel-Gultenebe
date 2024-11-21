@@ -6,7 +6,7 @@
 <section id="hero" style="position: relative; background: url('{{ asset('frontend')}}/images/baby.png') no-repeat center center / cover; height: 300px; color: white;">
   <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);"></div>
   <div class="container text-center position-relative" style="z-index: 2;">
-    <h1 class="display-4">Paketlerimiz</h1>
+    <h1 class="display-4">{{ __('Paketlerimiz') }}</h1>
   </div>
 </section>
 <section id="hakkimizda">
@@ -22,14 +22,14 @@
                       <i class="fa-solid fa-baby" style="font-size: 4rem;"></i>
                     </div>
                     <br>
-                    <h3 class="card-title">{{ $rs->name_tr }}</h3>
+                    <h3 class="card-title">{{ $rs->name }}</h3>
                   </div>
                   <div class="card-body text-center">
                       <h3 class="card-price">{{str_replace(".",",",$rs->price)}} ₺</h3>
-                      <p class="card-text text-white">{!! $rs->description_tr !!}</p>
+                      <p class="card-text text-white">{!! $rs->description !!}</p>
                   </div>
                   <div class="card-footer text-center">
-                      <a href="https://wa.me/905394031063" target="_blank" class="btn btn-primary">Seç</a>
+                      <a href="https://wa.me/905394031063" target="_blank" class="btn btn-primary">{{ __('Seç') }}</a>
                   </div>
               </div>
           </div>

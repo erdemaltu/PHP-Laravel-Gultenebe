@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
 use App\Models\Slider;
 use App\Models\AboutUs;
 use App\Models\Package;
@@ -61,10 +63,10 @@ class HomeController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|string|max:50',
-            'email' => 'nullable|email|max:50',
-            'phone' => 'nullable|string|max:20',
-            'subject' => 'nullable|string|max:100',
-            'message' => 'nullable|string|max:255',
+            'email' => 'required|email|max:50',
+            'phone' => 'required|string|max:20',
+            'subject' => 'required|string|max:100',
+            'message' => 'required|string|max:255',
         ]);
 
         $validatedData['IP'] = $request->ip();
@@ -73,5 +75,15 @@ class HomeController extends Controller
         ContactForm::create($validatedData);
 
         return redirect()->back()->with('success', 'Mesajınız başarıyla gönderildi.');
+    }
+
+    public function setLocale($lang)
+    {
+        if(in_array($lang, ['en','tr'])){
+            App::setLocale($lang);
+            Session::put('locale',$lang);
+        }
+
+        return back();
     }
 }

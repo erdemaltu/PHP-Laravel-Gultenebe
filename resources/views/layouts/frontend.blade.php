@@ -89,6 +89,67 @@
           background-color: rgba(100, 149, 237, 0.1); 
       }
 
+        #languageSelector {
+            position: relative;
+        }
+
+        #languageSelector .dropdown-toggle {
+            padding: 5px 10px;
+            border-radius: 8px;
+            background-color: rgba(248, 249, 250, 0.8);
+            border: 1px solid #ced4da;
+            color: #495057;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: background-color 0.2s, box-shadow 0.2s;
+        }
+
+        #languageSelector .dropdown-toggle:hover {
+            background-color: rgba(248, 249, 250, 1);
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #languageSelector .dropdown-menu {
+            background-color: white;
+            border: 1px solid #e4e4e4;
+            border-radius: 8px;
+            padding: 5px 0;
+        }
+
+        #languageSelector .dropdown-item {
+            padding: 8px 15px;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background-color 0.2s;
+        }
+
+        #languageSelector .dropdown-item:hover {
+            background-color: #f1f1f1;
+        }
+
+        #languageSelector .flag-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+
+        #languageSelector .language-text {
+            margin-left: 5px;
+        }
+
+        #languageSelector .dropdown-item.active {
+            font-weight: bold;
+            background-color: #e9ecef;
+        }
+
+
       @media (max-width: 768px) {
           .text-justify {
               text-align: left; 

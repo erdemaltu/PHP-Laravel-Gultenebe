@@ -132,13 +132,13 @@
                     <ul id="navbar"
                         class="navbar-nav text-uppercase justify-content-start justify-content-lg-center align-items-start align-items-lg-center flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link me-4 {{ request()->path() == 'anasayfa' ? 'active' : '' }}" href="{{ route('home') }}">Anasayfa</a>
+                            <a class="nav-link me-4 {{ request()->path() == 'anasayfa' ? 'active' : '' }}" href="{{ route('home') }}">{{ __('Anasayfa') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link me-4 {{ request()->path() == 'hakkimizda' ? 'active' : '' }}" href="{{ route('about_us') }}">Hakkımızda</a>
+                            <a class="nav-link me-4 {{ request()->path() == 'hakkimizda' ? 'active' : '' }}" href="{{ route('about_us') }}">{{ __('Hakkımızda') }}</a>
                         </li>
                         <li class="nav-item dropdown">
-                          <a class="nav-link me-4 dropdown-toggle {{ request()->is('hizmet*') || request()->is('alt-hizmet*') ? 'active' : '' }}" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Hizmetler</a>
+                          <a class="nav-link me-4 dropdown-toggle {{ request()->is('hizmet*') || request()->is('alt-hizmet*') ? 'active' : '' }}" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{ __('Hizmetler') }}</a>
                           <ul class="dropdown-menu animate slide border">
                               @foreach ($services as $service)
                               <li class="dropdown position-relative">
@@ -164,13 +164,34 @@
                           </ul>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link me-4 {{ request()->path() == 'paketler' ? 'active' : '' }}" href="{{ route('packages') }}">Paketler</a>
+                          <a class="nav-link me-4 {{ request()->path() == 'paketler' ? 'active' : '' }}" href="{{ route('packages') }}">{{ __('Paketler') }}</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link me-4 {{ request()->path() == 'iletisim' ? 'active' : '' }}" href="{{ route('contact_form') }}">İletişim</a>
+                          <a class="nav-link me-4 {{ request()->path() == 'iletisim' ? 'active' : '' }}" href="{{ route('contact_form') }}">{{ __('İletişim') }}</a>
                       </li>
                     </ul>
+                    <div class="user-items d-flex">
+                      <div id="languageSelector" class="dropdown">
+                          <a class="dropdown-toggle d-flex align-items-center" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              <img src="{{ asset('frontend/images/' . app()->getLocale() . '.svg') }}" alt="{{ app()->getLocale() }}" class="flag-icon">
+                              <span class="language-text">{{ app()->getLocale() == 'tr' ? 'Türkçe' : 'English' }}</span>
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                              <li>
+                                  <a class="dropdown-item d-flex align-items-center {{ app()->getLocale() == 'tr' ? 'active' : '' }}" href="{{ route('lang', 'tr') }}">
+                                      <img src="{{ asset('frontend')}}/images/tr.svg" alt="TR" class="flag-icon"> Türkçe
+                                  </a>
+                              </li>
+                              <li>
+                                  <a class="dropdown-item d-flex align-items-center {{ app()->getLocale() == 'en' ? 'active' : '' }}" href="{{ route('lang', 'en') }}">
+                                      <img src="{{ asset('frontend')}}/images/en.svg" alt="EN" class="flag-icon"> English
+                                  </a>
+                              </li>
+                          </ul>
+                      </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </nav>

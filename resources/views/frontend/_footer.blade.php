@@ -10,30 +10,30 @@
               </div>
               <div class="col-lg-2 col-sm-6 pb-3">
                 <div class="footer-menu text-capitalize">
-                  <h5 class="widget-title pb-2">Hızlı Likler</h5>
+                  <h5 class="widget-title pb-2">{{ __('Hızlı Likler') }}</h5>
                   <ul class="menu-list list-unstyled text-capitalize">
                     <li class="menu-item mb-1">
-                      <a href="{{ route('home') }}">Anasayfa</a>
+                      <a href="{{ route('home') }}">{{ __('Anasayfa') }}</a>
                     </li>
                     <li class="menu-item mb-1">
-                      <a href="{{ route('about_us') }}">Hakkımızda</a>
+                      <a href="{{ route('about_us') }}">{{ __('Hakkımızda') }}</a>
                     </li>
                     <li class="menu-item mb-1">
-                      <a href="{{ route('packages') }}">Paketler</a>
+                      <a href="{{ route('packages') }}">{{ __('Paketler') }}</a>
                     </li>
                     <li class="menu-item mb-1">
-                      <a href="{{ route('contact_form') }}">İletişim</a>
+                      <a href="{{ route('contact_form') }}">{{ __('İletişim') }}</a>
                     </li>
                   </ul>
                 </div>
               </div>
               <div class="col-lg-3 col-sm-6 pb-3">
                 <div class="footer-menu text-capitalize">
-                  <h5 class="widget-title pb-2">Hizmetlerimiz</h5>
+                  <h5 class="widget-title pb-2">{{ __('Hizmetlerimiz') }}</h5>
                   <ul class="menu-list list-unstyled">
                     @foreach ($services as $service)
                     <li class="menu-item mb-1">
-                      <a href="{{ route('services', $service->slug) }}">{{ $service->name_tr }}</a>
+                      <a href="{{ route('services', $service->slug) }}">{{ $service->name }}</a>
                     </li>
                     @endforeach
                   </ul>
@@ -41,10 +41,10 @@
               </div>
               <div class="col-lg-3 col-sm-6 pb-3">
                 <div class="footer-menu contact-item">
-                  <h5 class="widget-title text-capitalize pb-2">Bize Ulaşın</h5>
+                  <h5 class="widget-title text-capitalize pb-2">{{ __('Bize Ulaşın') }}</h5>
                   <a href="https://wa.me/905394031063" target="_blank" class="whatsapp-link">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="50" height="50">
-                    <span>WhatsApp ile İletişime Geç</span>
+                    <span>{{ __('WhatsApp ile İletişime Geç') }}</span>
                   </a>
                 </div>
               </div>

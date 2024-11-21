@@ -19,6 +19,8 @@ Route::get('/hizmet/{slug}', [HomeController::class, 'service'])->name('services
 Route::get('/alt-hizmet/{slug}', [HomeController::class, 'subService'])->name('subservices');
 Route::get('/iletisim', [HomeController::class, 'contactForm'])->name('contact_form');
 Route::post('/iletisim', [HomeController::class, 'contactFormStore'])->name('contact_form.store');
+#Lang
+Route::get('locale/{lang}', [HomeController::class, 'setLocale'])->name('lang');
 
 ### Admin ###
 //login

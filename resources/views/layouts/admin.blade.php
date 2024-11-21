@@ -10,7 +10,7 @@
         <meta content="Themesbrand" name="author" />
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{ asset('assets')}}/images/64.png">
+        <link rel="shortcut icon" href="{{ asset('frontend')}}/images/favicon.png">
 
         <!-- Bootstrap Css -->
         <link href="{{ asset('assets')}}/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
