@@ -14,6 +14,11 @@ class Package extends Model
         'seo_title', 'seo_description', 'seo_keywords_'
     ];
 
+    public function getNameAttribute()
+    {
+        return $this->translateAttribute('name');
+    }
+    
     public function getDescriptionAttribute()
     {
         return $this->translateAttribute('description');

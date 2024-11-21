@@ -143,7 +143,7 @@
                               @foreach ($services as $service)
                               <li class="dropdown position-relative">
                                   <a href="{{ route('services', $service->slug) }}" class="dropdown-item fw-light">
-                                      {{ $service->name_tr }}
+                                      {{ $service->name }}
                                       @if ($service->subServices->count())
                                           <span class="dropdown-arrow">&#9654;</span>
                                       @endif
@@ -153,7 +153,7 @@
                                           @foreach ($service->subServices as $subService)
                                               <li>
                                                   <a href="{{ route('subservices', $subService->slug) }}" class="dropdown-item fw-light">
-                                                      {{ $subService->name_tr }}
+                                                      {{ $subService->name }}
                                                   </a>
                                               </li>
                                           @endforeach

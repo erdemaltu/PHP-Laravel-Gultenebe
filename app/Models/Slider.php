@@ -10,8 +10,13 @@ class Slider extends Model
     use Translatable;
 
     protected $fillable = [
-        'name', 'image', 'description_tr', 'description_en', 'active', 'order'
+        'name_tr', 'name_en', 'image', 'description_tr', 'description_en', 'active', 'order'
     ];
+
+    public function getNameAttribute()
+    {
+        return $this->translateAttribute('name');
+    }
 
     public function getDescriptionAttribute()
     {

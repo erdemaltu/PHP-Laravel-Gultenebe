@@ -8,13 +8,21 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\ContactForm;
+use App\Models\Service;
+use App\Models\Package;
 use App\Models\User;
 
 class AuthController extends Controller
 {
     public function index()
     {
-        return view('admin.homepage.index');
+        $totalServices = Service::count();
+        $activeServices = Service::where('active', 1)->count();
+        $newMessage = ContactForm::where('status', 'Yeni')->count();
+        $totalPackages = Package::count();
+
+        return view('admin.homepage.index', compact('totalServices', 'activeServices', 'newMessage', 'totalPackages'));
     }
 
     public function login()

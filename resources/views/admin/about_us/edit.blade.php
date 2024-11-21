@@ -64,18 +64,35 @@
                                                 <textarea id="summernote_tr" name="content_tr">{{$about->content_tr}}</textarea>
                                                 <script>
                                                 $('#summernote_tr').summernote({
-                                                    placeholder: '...',
-                                                    tabsize: 2,
-                                                    height: 300,
+                                                    height: 300, 
+                                                    minHeight: 200, 
+                                                    maxHeight: 500, 
+                                                    focus: true,
+                                                    lang: 'tr-TR', 
                                                     toolbar: [
-                                                    ['style', ['style']],
-                                                    ['font', ['bold', 'underline', 'clear']],
-                                                    ['color', ['color']],
-                                                    ['para', ['ul', 'ol', 'paragraph']],
-                                                    ['table', ['table']],
-                                                    ['insert', ['link', 'picture', 'video']],
-                                                    ['view', ['fullscreen', 'codeview', 'help']]
-                                                    ]
+                                                        ['style', ['style']], 
+                                                        ['font', ['bold', 'italic', 'underline', 'clear']], 
+                                                        ['fontname', ['fontname']], 
+                                                        ['fontsize', ['fontsize']], 
+                                                        ['color', ['color']], 
+                                                        ['para', ['ul', 'ol', 'paragraph']], 
+                                                        ['table', ['table']], 
+                                                        ['insert', ['link', 'picture', 'video']], 
+                                                        ['view', ['fullscreen', 'codeview', 'help']] 
+                                                    ],
+                                                    fontNames: [
+                                                        'Arial', 'Courier New', 'Georgia', 'Times New Roman', 'Verdana', 'Roboto', 'Montserrat'
+                                                    ],
+                                                    fontSizes: [
+                                                        '8', '10', '12', '14', '16', '18', '20', '24', '28', '32', '36', '40', '48', '64', '72'
+                                                    ],
+                                                    callbacks: {
+                                                        onPaste: function (e) {
+                                                            var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');
+                                                            e.preventDefault();
+                                                            document.execCommand('insertText', false, bufferText);
+                                                        }
+                                                    }
                                                 });
                                                 </script>
                                                 </div>
@@ -87,18 +104,35 @@
                                                 <textarea id="summernote_en" name="content_en">{{$about->content_en}}</textarea>
                                                 <script>
                                                 $('#summernote_en').summernote({
-                                                    placeholder: '...',
-                                                    tabsize: 2,
-                                                    height: 300,
+                                                    height: 300, 
+                                                    minHeight: 200, 
+                                                    maxHeight: 500, 
+                                                    focus: true,
+                                                    lang: 'en-US', 
                                                     toolbar: [
-                                                    ['style', ['style']],
-                                                    ['font', ['bold', 'underline', 'clear']],
-                                                    ['color', ['color']],
-                                                    ['para', ['ul', 'ol', 'paragraph']],
-                                                    ['table', ['table']],
-                                                    ['insert', ['link', 'picture', 'video']],
-                                                    ['view', ['fullscreen', 'codeview', 'help']]
-                                                    ]
+                                                        ['style', ['style']], 
+                                                        ['font', ['bold', 'italic', 'underline', 'clear']], 
+                                                        ['fontname', ['fontname']], 
+                                                        ['fontsize', ['fontsize']], 
+                                                        ['color', ['color']], 
+                                                        ['para', ['ul', 'ol', 'paragraph']], 
+                                                        ['table', ['table']], 
+                                                        ['insert', ['link', 'picture', 'video']], 
+                                                        ['view', ['fullscreen', 'codeview', 'help']] 
+                                                    ],
+                                                    fontNames: [
+                                                        'Arial', 'Courier New', 'Georgia', 'Times New Roman', 'Verdana', 'Roboto', 'Montserrat'
+                                                    ],
+                                                    fontSizes: [
+                                                        '8', '10', '12', '14', '16', '18', '20', '24', '28', '32', '36', '40', '48', '64', '72'
+                                                    ],
+                                                    callbacks: {
+                                                        onPaste: function (e) {
+                                                            var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');
+                                                            e.preventDefault();
+                                                            document.execCommand('insertText', false, bufferText);
+                                                        }
+                                                    }
                                                 });
                                                 </script>
                                                 </div>

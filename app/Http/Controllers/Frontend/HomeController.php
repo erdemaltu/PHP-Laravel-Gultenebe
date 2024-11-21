@@ -36,13 +36,13 @@ class HomeController extends Controller
 
     public static function getServicesWithSubServices()
     {
-        return Service::with('subServices')->where('active', 1)->get();
+        return Service::with('subServices')->where('active', 1)->orderBy('order','asc')->get();
     }
 
     public function service($slug)
     {
         $service = Service::where('slug', $slug)->where('active', 1)->firstOrFail();
-        $subservices = $service->subServices()->where('active', 1)->get();
+        $subservices = $service->subServices()->where('active', 1)->orderBy('order','asc')->get();
 
         return view('frontend.services.index', compact('service', 'subservices'));
     }

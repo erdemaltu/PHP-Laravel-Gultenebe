@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="utf-8" />
-        <title>Admin Girişi | TechnoSphere</title>
+        <title>Admin Girişi | Gultenebe</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesbrand" name="author" />
@@ -31,54 +31,12 @@
             <div class="container-fluid p-0">
                 <div class="row g-0">
                     
-                    <div class="col-xl-9">
-                        <div class="auth-full-bg pt-lg-5 p-4">
-                            <div class="w-100">
-                                <div class="bg-overlay"></div>
-                                <div class="d-flex h-100 flex-column">
-    
-                                    <div class="p-4 mt-auto">
-                                        <div class="row justify-content-center">
-                                            <div class="col-lg-7">
-                                                <div class="text-center">
-                                                    
-                                                    <h4 class="mb-3"><i class="bx bxs-quote-alt-left text-primary h1 align-middle me-3"></i><span class="text-primary">1.000</span>+ Mutlu Müşteri</h4>
-                                                    
-                                                    <div dir="ltr">
-                                                        <div class="owl-carousel owl-theme auth-review-carousel" id="auth-review-carousel">
-                                                            <div class="item">
-                                                                <div class="py-3">
-                                                                    <p class="font-size-16 mb-4">" Fantastic theme with a ton of options. If you just want the HTML to integrate with your project, then this is the package. You can find the files in the 'dist' folder...no need to install git and all the other stuff the documentation talks about. "</p>
-    
-                                                                    <div>
-                                                                        <h4 class="font-size-16 text-primary">Abs1981</h4>
-                                                                        <p class="font-size-14 mb-0">- Skote User</p>
-                                                                    </div>
-                                                                </div>
-                                                                
-                                                            </div>
-    
-                                                            <div class="item">
-                                                                <div class="py-3">
-                                                                    <p class="font-size-16 mb-4">" If Every Vendor on Envato are as supportive as Themesbrand, Development with be a nice experience. You guys are Wonderful. Keep us the good work. "</p>
-    
-                                                                    <div>
-                                                                        <h4 class="font-size-16 text-primary">nezerious</h4>
-                                                                        <p class="font-size-14 mb-0">- Skote User</p>
-                                                                    </div>
-                                                                </div>
-                                                                
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-xl-9">
+                    <div class="auth-full-bg pt-lg-5 p-4" style="background-image: url('{{ asset('assets/images/ebe-background.jpg') }}'); background-size: cover; background-position: center; position: relative;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.3);"></div>
                     </div>
+                </div>
+
                     <!-- end col -->
 
                     <div class="col-xl-3">
@@ -95,7 +53,7 @@
                                             </div>
                                             @include('admin.alert')
                                             <div>
-                                                <h5 class="text-primary" style="color: #ee724b !important">Hoşgeldiniz !</h5>
+                                                <h5 class="text-primary" style="color: #F86D72 !important">Hoşgeldiniz !</h5>
                                                 <p class="text-muted">Devam etmek için giriş yapınız..</p>
                                             </div>
                 
@@ -126,7 +84,7 @@
                                                     </div>
                                                     
                                                     <div class="mt-3 d-grid">
-                                                        <button class="btn btn-primary waves-effect waves-light" style="background: #ee724b !important;border:none!important" type="submit">GİRİŞ</button>
+                                                        <button class="btn btn-primary waves-effect waves-light" style="background: #F86D72 !important;border:none!important" type="submit">GİRİŞ</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -140,7 +98,7 @@
                                             </div>
                                             @include('admin.alert')
                                             <div>
-                                                <h5 class="text-primary" style="color: #ee724b !important">Hoşgeldiniz !</h5>
+                                                <h5 class="text-primary" style="color: #F86D72 !important">Hoşgeldiniz !</h5>
                                                 <p class="text-muted">Devam etmek için giriş yapınız..</p>
                                             </div>
                                         </div>

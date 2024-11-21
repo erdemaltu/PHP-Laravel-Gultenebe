@@ -53,10 +53,12 @@
         <div class="row">
             @foreach ($services as $rs)
             <div class="col-md-3 posts mb-4">
-                <img src="{{ asset('uploads/services/'.$rs->image)}}" alt="post image" class="img-fluid rounded-3">
-                <a href="blog.html" class="fs-6 text-primary">gültenebe</a>
-                <h4 class="card-title mb-2 text-capitalize text-dark"><a href="index.html">{{ $rs->name }}</a></h4>
-                <p class="mb-2">{{ $rs->definition }}. <span><a class="text-decoration-underline text-black-50" href="index.html">Daha Fazla Oku</a></span>
+              <a href="{{ route('services', $rs->slug) }}">
+                <img src="{{ asset('uploads/services/'.$rs->image)}}" alt="post image" class="card-img-top img-fluid rounded-3">
+              </a>  
+                <a href="{{ route('home') }}" class="fs-6 text-primary">gültenebe</a>
+                <h4 class="card-title mb-2 text-capitalize text-dark"><a href="{{ route('services', $rs->slug) }}">{{ $rs->name }}</a></h4>
+                <p class="mb-2">{{ $rs->definition }}. <span><a class="text-decoration-underline text-black-50" href="{{ route('services', $rs->slug) }}">{{ __('Daha Fazla Oku') }}</a></span>
                 </p>
             </div>
           @endforeach

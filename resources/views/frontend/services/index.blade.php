@@ -18,15 +18,15 @@
         <h3 class="mt-5">{{ __('Alt Hizmetler') }}</h3>
         <div class="row mt-4">
             @foreach ($subservices as $subservice)
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="{{ asset('uploads/services/subservices/' . $subservice->image) }}" class="card-img-top" alt="{{ $subservice->name_tr }}">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $subservice->definition }}</h5>
-                            <a href="{{ route('subservices', $subservice->slug) }}" class="btn btn-secondary">{{ __('Detaylı Bilgi') }}</a>
-                        </div>
+            <div class="col-sm-6 col-md-4 mb-4">
+                <div class="card">
+                    <img src="{{ asset('uploads/services/subservices/' . $subservice->image) }}" class="card-img-top img-fluid" alt="{{ $subservice->name_tr }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $subservice->definition }}</h5>
+                        <a href="{{ route('subservices', $subservice->slug) }}" class="btn btn-secondary">{{ __('Detaylı Bilgi') }}</a>
                     </div>
                 </div>
+            </div>
             @endforeach
           </div>
           @endif

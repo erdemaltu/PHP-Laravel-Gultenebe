@@ -149,6 +149,11 @@
             background-color: #e9ecef;
         }
 
+        .card-img-top {
+            width: 100%; 
+            height: 200px; 
+            object-fit: cover; 
+        }
 
       @media (max-width: 768px) {
           .text-justify {
