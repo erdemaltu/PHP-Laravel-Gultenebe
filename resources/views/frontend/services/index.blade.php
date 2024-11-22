@@ -1,6 +1,12 @@
 @extends('layouts.frontend')
 
-@section('title','Hizmetler')
+@section('title')
+    {{ $service->seo_title ?? 'Gülten Ebe | Hizmetler' }}
+@endsection
+@section('head')
+    <meta name="description" content="{{ $service->seo_description ?? 'Gulten Ebe\'nin doğum öncesi danışmanlık hizmetleriyle güvenli ve bilinçli bir hamilelik süreci geçirin. Uzman desteği için hemen iletişime geçin.' }}">
+    <meta name="keywords" content="{{ $service->seo_keywords ?? 'doğum danışmanlığı, doğum öncesi eğitim, hamilelik rehberliği, ebe danışmanlık' }}">
+@endsection
 
 @section('content')
 <section id="hero" style="position: relative; background: url('{{ asset('frontend')}}/images/baby.png') no-repeat center center / cover; height: 300px; color: white;">

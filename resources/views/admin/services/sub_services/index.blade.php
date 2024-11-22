@@ -65,11 +65,6 @@
                                                             @endif
                                                         </td>
                                                         <td>{{$rs->name_tr}}</td>
-                                                        <td data-field="id">
-                                                            <a href="{{route('subservices.index',['id'=>$rs->id])}}" class="btn btn-secondary waves-effect waves-light" title="Alt Hizmet">
-                                                            <i class="fas fa-angle-double-down"></i> Alt Hizmetleri
-                                                        </a>
-                                                        </td>
                                                         <td>
                                                             <div class="square-switch">
                                                                 <input

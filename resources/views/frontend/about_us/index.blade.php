@@ -1,6 +1,12 @@
 @extends('layouts.frontend')
 
-@section('title','Hakkımızda')
+@section('title')
+    {{ $about_us->seo_title ?? 'Gülten Ebe | Hakkımızda' }}
+@endsection
+@section('head')
+    <meta name="description" content="{{ $about_us->seo_description ?? 'Gulten Ebe\'nin doğum öncesi danışmanlık hizmetleriyle güvenli ve bilinçli bir hamilelik süreci geçirin. Uzman desteği için hemen iletişime geçin.' }}">
+    <meta name="keywords" content="{{ $about_us->seo_keywords ?? 'doğum danışmanlığı, doğum öncesi eğitim, hamilelik rehberliği, ebe danışmanlık' }}">
+@endsection
 
 @section('content')
 <section id="hero" style="position: relative; background: url('{{ asset('frontend')}}/images/baby.png') no-repeat center center / cover; height: 300px; color: white;">
