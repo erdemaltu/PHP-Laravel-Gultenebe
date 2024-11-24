@@ -11,7 +11,7 @@
 @section('content')
 <section id="hero" style="position: relative; background: url('{{ asset('frontend') }}/images/baby.png') no-repeat center center / cover; height: 300px; color: white;">
     <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);"></div>
-    <div class="container text-center position-relative" style="z-index: 2;">
+    <div class="container d-flex justify-content-center align-items-center flex-column text-center" style="height: 100%; position: relative; z-index: 2;">
         <h1 class="display-4">{{ __('İletişim') }}</h1>
     </div>
 </section>

@@ -63,80 +63,14 @@
                                             <div class="row mb-4">
                                                 <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">İçerik (Türkçe)</label>
                                                 <div class="col-sm-9">
-                                                <textarea id="summernote_tr" name="description_tr">{{old('description_tr')}}</textarea>
-                                                <script>
-                                                $('#summernote_tr').summernote({
-                                                    height: 300, 
-                                                    minHeight: 200, 
-                                                    maxHeight: 500, 
-                                                    focus: true,
-                                                    lang: 'tr-TR', 
-                                                    toolbar: [
-                                                        ['style', ['style']], 
-                                                        ['font', ['bold', 'italic', 'underline', 'clear']], 
-                                                        ['fontname', ['fontname']], 
-                                                        ['fontsize', ['fontsize']], 
-                                                        ['color', ['color']], 
-                                                        ['para', ['ul', 'ol', 'paragraph']], 
-                                                        ['table', ['table']], 
-                                                        ['insert', ['link', 'picture', 'video']], 
-                                                        ['view', ['fullscreen', 'codeview', 'help']] 
-                                                    ],
-                                                    fontNames: [
-                                                        'Arial', 'Courier New', 'Georgia', 'Times New Roman', 'Verdana', 'Roboto', 'Montserrat'
-                                                    ],
-                                                    fontSizes: [
-                                                        '8', '10', '12', '14', '16', '18', '20', '24', '28', '32', '36', '40', '48', '64', '72'
-                                                    ],
-                                                    callbacks: {
-                                                        onPaste: function (e) {
-                                                            var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');
-                                                            e.preventDefault();
-                                                            document.execCommand('insertText', false, bufferText);
-                                                        }
-                                                    }
-                                                });
-                                                </script>
+                                                <textarea rows="4" class="form-control" id="summernote_tr" name="description_tr" placeholder="....">{{old('description_tr')}}</textarea>
                                                 </div>
                                             </div>
 
                                             <div class="row mb-4">
                                                 <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">İçerik (İngilizce)</label>
                                                 <div class="col-sm-9">
-                                                <textarea id="summernote_en" name="description_en">{{old('description_en')}}</textarea>
-                                                <script>
-                                                $('#summernote_en').summernote({
-                                                    height: 300, 
-                                                    minHeight: 200, 
-                                                    maxHeight: 500, 
-                                                    focus: true,
-                                                    lang: 'en-US', 
-                                                    toolbar: [
-                                                        ['style', ['style']], 
-                                                        ['font', ['bold', 'italic', 'underline', 'clear']], 
-                                                        ['fontname', ['fontname']], 
-                                                        ['fontsize', ['fontsize']], 
-                                                        ['color', ['color']], 
-                                                        ['para', ['ul', 'ol', 'paragraph']], 
-                                                        ['table', ['table']], 
-                                                        ['insert', ['link', 'picture', 'video']], 
-                                                        ['view', ['fullscreen', 'codeview', 'help']] 
-                                                    ],
-                                                    fontNames: [
-                                                        'Arial', 'Courier New', 'Georgia', 'Times New Roman', 'Verdana', 'Roboto', 'Montserrat'
-                                                    ],
-                                                    fontSizes: [
-                                                        '8', '10', '12', '14', '16', '18', '20', '24', '28', '32', '36', '40', '48', '64', '72'
-                                                    ],
-                                                    callbacks: {
-                                                        onPaste: function (e) {
-                                                            var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');
-                                                            e.preventDefault();
-                                                            document.execCommand('insertText', false, bufferText);
-                                                        }
-                                                    }
-                                                });
-                                                </script>
+                                                <textarea rows="4" class="form-control" id="summernote_en" name="description_en" placeholder="....">{{old('description_en')}}</textarea>
                                                 </div>
                                             </div>
 

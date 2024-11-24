@@ -138,7 +138,7 @@
                             <a class="nav-link me-4 {{ request()->path() == 'hakkimizda' ? 'active' : '' }}" href="{{ route('about_us') }}">{{ __('Hakkımızda') }}</a>
                         </li>
                         <li class="nav-item dropdown">
-                          <a class="nav-link me-4 dropdown-toggle {{ request()->is('hizmet*') || request()->is('alt-hizmet*') ? 'active' : '' }}" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{ __('Hizmetler') }}</a>
+                          <a class="nav-link me-4 dropdown-toggle {{ request()->is('hizmet*') || request()->is('alt-hizmet*') ? 'active' : '' }}" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{ __('HİZMETLER') }}</a>
                           <ul class="dropdown-menu animate slide border">
                               @foreach ($services as $service)
                               <li class="dropdown position-relative">
@@ -167,7 +167,7 @@
                           <a class="nav-link me-4 {{ request()->path() == 'paketler' ? 'active' : '' }}" href="{{ route('packages') }}">{{ __('Paketler') }}</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link me-4 {{ request()->path() == 'iletisim' ? 'active' : '' }}" href="{{ route('contact_form') }}">{{ __('İletişim') }}</a>
+                          <a class="nav-link me-4 {{ request()->path() == 'iletisim' ? 'active' : '' }}" href="{{ route('contact_form') }}">{{ __('İLETİŞİM') }}</a>
                       </li>
                     </ul>
                     <div class="user-items d-flex">

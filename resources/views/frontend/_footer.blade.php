@@ -1,4 +1,4 @@
-<footer id="footer" class="padding-large">
+<footer id="footer" class="padding-small">
       <div class="container">
         <div class="row">
           <div class="footer-top-area">

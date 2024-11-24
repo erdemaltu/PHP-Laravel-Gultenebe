@@ -77,7 +77,7 @@
                                                                         data-off-label="Pasif"></label>
                                                             </div>
                                                         </td>
-                                                        <td style="width: 100px">
+                                                        <td>
                                                             <a href="{{route('services.edit',['id'=>$rs->id])}}" class="btn btn-info waves-effect waves-light" title="Düzenle">
                                                                 <i class="fas fa-pencil-alt"></i>
                                                             </a>

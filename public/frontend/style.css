@@ -1176,7 +1176,7 @@ th{
 /*------------Swiper Arrow -----------*/
 .swiper-next,
 .swiper-prev{
-  color: var(--black-color);
+  color: var(--white-color);
   z-index: 9999;
 }
 .swiper-button-disabled{
