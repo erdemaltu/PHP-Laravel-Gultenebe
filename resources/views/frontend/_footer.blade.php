@@ -5,7 +5,7 @@
             <div class="row d-flex flex-wrap justify-content-between">
               <div class="col-lg-3 col-sm-6 pb-3">
                 <div class="footer-menu">
-                  <img src="{{ asset('frontend')}}/images/gultenebe.png" alt="logo" class="img-fluid mb-2">
+                  <img src="{{ asset('frontend')}}/images/gultenebe_logo.png" alt="logo" class="img-fluid mb-2">
                 </div>
               </div>
               <div class="col-lg-2 col-sm-6 pb-3">
@@ -42,7 +42,7 @@
               <div class="col-lg-3 col-sm-6 pb-3">
                 <div class="footer-menu contact-item">
                   <h5 class="widget-title text-capitalize pb-2">{{ __('Bize Ulaşın') }}</h5>
-                  <a href="https://wa.me/905394031063" target="_blank" class="whatsapp-link">
+                  <a href="https://wa.me/905544872987" target="_blank" class="whatsapp-link">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="50" height="50">
                     <span>{{ __('WhatsApp ile İletişime Geç') }}</span>
                   </a>

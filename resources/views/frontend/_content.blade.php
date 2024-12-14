@@ -1,5 +1,5 @@
 <section id="billboard" class="position-relative d-flex align-items-center py-5 bg-light-gray"
-      style="background-image: url({{ asset('frontend')}}/images/midwife.png); background-size: cover; background-repeat: no-repeat; background-position: center; height: 800px;">
+      style="background-image: url({{ asset('frontend')}}/images/ebe-background.png); background-size: cover; background-repeat: no-repeat; background-position: center; height: 800px;">
       <div class="overlay" style="
             position: absolute;
             top: 0;
@@ -56,7 +56,7 @@
                 <img src="{{ asset('uploads/services/'.$rs->image)}}" alt="post image" class="card-img-top img-fluid rounded-3">
               </a>  
                 <h4 class="card-title mt-2 mb-2 text-capitalize text-dark"><a href="{{ route('services', $rs->slug) }}">{{ $rs->name }}</a></h4>
-                <p class="mb-2">{{ $rs->definition }}. <span><a class="text-decoration-underline text-primary" href="{{ route('services', $rs->slug) }}">{{ __('Daha Fazla Oku') }}</a></span>
+                <p class="mb-2">{{ $rs->definition }}... <span><a class="text-decoration-underline text-primary" href="{{ route('services', $rs->slug) }}">{{ __('Daha Fazla Oku') }}</a></span>
                 </p>
             </div>
           @endforeach

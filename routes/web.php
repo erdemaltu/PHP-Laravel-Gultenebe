@@ -12,7 +12,7 @@ use App\Http\Controllers\Frontend\HomeController;
 
 ### Frontend ###
 
-Route::get('/anasayfa', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/hakkimizda', [HomeController::class, 'aboutUs'])->name('about_us');
 Route::get('/paketler', [HomeController::class, 'packages'])->name('packages');
 Route::get('/hizmet/{slug}', [HomeController::class, 'service'])->name('services');

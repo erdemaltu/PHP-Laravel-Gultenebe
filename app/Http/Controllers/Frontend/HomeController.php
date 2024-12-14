@@ -36,8 +36,14 @@ class HomeController extends Controller
 
     public static function getServicesWithSubServices()
     {
-        return Service::with('subServices')->where('active', 1)->orderBy('order','asc')->get();
+        return Service::with(['subServices' => function ($query) {
+            $query->where('active', 1);
+        }])
+        ->where('active', 1)
+        ->orderBy('order', 'asc')
+        ->get();
     }
+
 
     public function service($slug)
     {

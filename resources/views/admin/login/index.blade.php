@@ -47,8 +47,8 @@
                                         <div class="tab-pane active" id="admin" role="tabpanel">
                                             <div class="mb-4 mb-md-4">
                                                 <a  class="d-block auth-logo">
-                                                    <img src="{{ asset('assets')}}/images/gultenebe.png" alt="" height="75" class="auth-logo-dark">
-                                                    <img src="{{ asset('assets')}}/images/gultenebe.png" alt="" height="75" class="auth-logo-light">
+                                                    <img src="{{ asset('assets')}}/images/gultenebe_logo.png" alt="" height="75" class="auth-logo-dark">
+                                                    <img src="{{ asset('assets')}}/images/gultenebe_logo.png" alt="" height="75" class="auth-logo-light">
                                                 </a>
                                             </div>
                                             @include('admin.alert')
@@ -92,8 +92,8 @@
                                         <div class="tab-pane" id="depo" role="tabpanel">
                                             <div class="mb-4 mb-md-4">
                                                 <a  class="d-block auth-logo">
-                                                    <img src="{{ asset('assets')}}/images/gultenebe.png" alt="" height="75" class="auth-logo-dark">
-                                                    <img src="{{ asset('assets')}}/images/gultenebe.png" alt="" height="75" class="auth-logo-light">
+                                                    <img src="{{ asset('assets')}}/images/gultenebe_logo.png" alt="" height="75" class="auth-logo-dark">
+                                                    <img src="{{ asset('assets')}}/images/gultenebe_logo.png" alt="" height="75" class="auth-logo-light">
                                                 </a>
                                             </div>
                                             @include('admin.alert')

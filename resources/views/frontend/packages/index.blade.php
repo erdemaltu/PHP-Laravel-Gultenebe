@@ -31,11 +31,11 @@
                     <h3 class="card-title">{{ $rs->name }}</h3>
                   </div>
                   <div class="card-body text-center">
-                      <h3 class="card-price">{{str_replace(".",",",$rs->price)}} ₺</h3>
+                      <!-- <h3 class="card-price">{{str_replace(".",",",$rs->price)}} ₺</h3> -->
                       <p class="card-text text-white">{!! $rs->description !!}</p>
                   </div>
                   <div class="card-footer text-center">
-                      <a href="https://wa.me/905394031063" target="_blank" class="btn btn-primary">{{ __('Seç') }}</a>
+                      <a href="https://wa.me/905544872987" target="_blank" class="btn btn-primary">{{ __('Seç') }}</a>
                   </div>
               </div>
           </div>

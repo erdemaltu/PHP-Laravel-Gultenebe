@@ -112,7 +112,7 @@
     <nav id="header-nav" class="navbar navbar-expand-lg py-3">
         <div class="container">
             <a class="navbar-brand" href="{{ route('home') }}">
-                <img src="{{ asset('frontend') }}/images/gultenebe.png" class="logo">
+                <img src="{{ asset('frontend') }}/images/gultenebe_logo.png" class="logo">
             </a>
             <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -123,7 +123,7 @@
             <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
                 <div class="offcanvas-header px-4 pb-0">
                     <a class="navbar-brand" href="{{ route('home') }}">
-                        <img src="{{ asset('frontend') }}/images/gultenebe.png" class="logo">
+                        <img src="{{ asset('frontend') }}/images/gultenebe_logo.png" class="logo">
                     </a>
                     <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"
                         data-bs-target="#bdNavbar"></button>
@@ -132,7 +132,7 @@
                     <ul id="navbar"
                         class="navbar-nav text-uppercase justify-content-start justify-content-lg-center align-items-start align-items-lg-center flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link me-4 {{ request()->path() == 'anasayfa' ? 'active' : '' }}" href="{{ route('home') }}">{{ __('Anasayfa') }}</a>
+                        <a class="nav-link me-4 {{ request()->is('/') ? 'active' : '' }}" href="{{ route('home') }}">{{ __('Anasayfa') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link me-4 {{ request()->path() == 'hakkimizda' ? 'active' : '' }}" href="{{ route('about_us') }}">{{ __('Hakkımızda') }}</a>
